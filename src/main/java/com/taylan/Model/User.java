@@ -10,6 +10,7 @@ import java.util.Map;
 public class User {
 // I am trying to make new commit.
 //    commit try 2
+    // commit try 3
     private static final Map<String, User> USERS = new HashMap<String, User>();
 
     private String id;
