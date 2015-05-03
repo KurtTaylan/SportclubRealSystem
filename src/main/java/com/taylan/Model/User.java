@@ -9,6 +9,7 @@ import java.util.Map;
  */
 public class User {
 
+    // netbeans check
     private static final Map<String, User> USERS = new HashMap<String, User>();
 
     private String id;
