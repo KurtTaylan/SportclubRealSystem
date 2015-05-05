@@ -5,7 +5,7 @@
  */
 package com.taylan.core;
 
-import com.taylan.persistence.Personaltrainers;
+import com.taylan.persistence.DAO.Personaltrainers;
 import com.taylan.persistence.util.HibernateUtil;
 import java.net.URL;
 import java.util.List;
