@@ -7,4 +7,5 @@ import com.taylan.persistence.Interface.Person;
  *          Person Abstract
  */
 public abstract class PersonAbstract implements Person{
+    
 }
