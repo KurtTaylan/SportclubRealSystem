@@ -62,6 +62,16 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
         this.contact = contact;
     }
     
+    public UserInfo(String name, String surName, String address, String email,
+                    int age,String gender,String contact){
+        this.name = name;
+        this.surName = surName;
+        this.address = address;
+        this.age = age;
+        this.gender = gender;
+        this.contact = contact;
+    }
+    
     public UserInfo(){
     
     }
