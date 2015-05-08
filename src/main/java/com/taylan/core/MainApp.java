@@ -1,31 +1,22 @@
 package com.taylan.core;
 
 import com.taylan.Model.User;
-import com.taylan.persistence.util.HibernateUtil;
 import com.taylan.security.Authenticator;
 
 import java.io.InputStream;
-import java.util.List;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-
-import com.taylan.persistence.*;
-
 /**
- *
  * @author Taylan Kurt   <taylankurt34@gmail.com>
  *
  */
@@ -47,7 +38,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {          //throws Exception
         try {
             stage = primaryStage;
-            stage.setTitle("SportClub System");
+            stage.setTitle("GYM application");
             stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
             stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
 
@@ -110,15 +101,6 @@ public class MainApp extends Application {
         } catch (Exception ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*
-         Session session = HibernateUtil.getSessionFactory().openSession();
-   	 
-         session.beginTransaction();
-         List<Personaltrainers> ls= session.getNamedQuery("loadPersonalTrainers").list();
-         for (Personaltrainers l : ls) {
-         System.out.println(l.getName());
-         }
-         */
     }
 
     public void gotoProfile() {

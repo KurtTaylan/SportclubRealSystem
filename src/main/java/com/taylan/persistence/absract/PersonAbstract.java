@@ -8,4 +8,8 @@ import com.taylan.persistence.Interface.Person;
  */
 public abstract class PersonAbstract implements Person{
     
+    public String takeRecord(){
+    
+        return "";
+    }
 }

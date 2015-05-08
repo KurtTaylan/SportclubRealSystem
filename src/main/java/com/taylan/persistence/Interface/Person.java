@@ -5,4 +5,6 @@ package com.taylan.persistence.Interface;
  *
  */
 public interface Person {
+   public abstract String takeRecord();
+    
 }
