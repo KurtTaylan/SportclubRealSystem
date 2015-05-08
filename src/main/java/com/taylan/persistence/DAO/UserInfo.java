@@ -25,7 +25,11 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(
 	name = "getUserInformation",
-	query = "from UserInfo u where u.id = :id"
+	query = "from UserInfo u where u.id =" + " :id"
+        ),
+    @NamedQuery(
+	name = "securityCheck",
+	query = "select usernamee,passwordd from UserInfo u where u.id = :id"
         )
 })
 @Entity
@@ -42,6 +46,8 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     private String contact;
     private int age;
     private String gender;
+    private String usernamee;
+    private String passwordd;
     
     private Set<SchedulePool> schedules = new HashSet<SchedulePool>(0);
     
@@ -178,8 +184,8 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
      * @return the id
      */
     @Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id_user", unique = true, nullable = false)
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id_user", unique = true, nullable = false)
     public Integer getId() {
         return id;
     }
@@ -195,10 +201,10 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
      * @return the schedules // Connection definition between user_info and schedule_pool tables
      */
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "user_info_has_schedule_pool", catalog = "sportclubsystem", joinColumns = { 
-			@JoinColumn(name = "user_info_id_user", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "schedule_pool_id_schedule_pool", 
-					nullable = false, updatable = false) })
+    @JoinTable(name = "user_info_has_schedule_pool", catalog = "sportclubsystem", joinColumns = { 
+                    @JoinColumn(name = "user_info_id_user", nullable = false, updatable = false) }, 
+                    inverseJoinColumns = { @JoinColumn(name = "schedule_pool_id_schedule_pool", 
+                                    nullable = false, updatable = false) })
     public Set<SchedulePool> getSchedules() {
         return schedules;
     }
@@ -208,5 +214,35 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
      */
     public void setSchedules(Set<SchedulePool> schedules) {
         this.schedules = schedules;
+    }
+
+    /**
+     * @return the username
+     */
+    @Column(name = "username", nullable = false, length = 45)
+    public String getUsernamee() {
+        return usernamee;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsernamee(String usernamee) {
+        this.usernamee = usernamee;
+    }
+
+    /**
+     * @return the password
+     */
+    @Column(name = "password", nullable = false, length = 45)
+    public String getPasswordd() {
+        return passwordd;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String passwordd) {
+        this.passwordd = passwordd;
     }
 }

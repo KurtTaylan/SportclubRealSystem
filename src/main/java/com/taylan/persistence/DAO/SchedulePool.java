@@ -5,12 +5,15 @@ package com.taylan.persistence.DAO;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -43,7 +46,11 @@ public class SchedulePool implements java.io.Serializable {
     private String saSchedule;
     private String suSchedule;
     
+    /* To making MANY TO MANY RELATION WITH UserInfo table */
     private Set<UserInfo> users = new HashSet<UserInfo>(0);
+    
+    /* To making MANY TO MANY RELATION WITH RecommendedExercises table */
+    private Set<RecommendedExercises> recommendedExercises = new HashSet<RecommendedExercises>(0);
     
     
     public SchedulePool(){};
@@ -260,6 +267,26 @@ public class SchedulePool implements java.io.Serializable {
      */
     public void setUsers(Set<UserInfo> users) {
         this.users = users;
+    }
+
+    /**
+     * @return the recommendedExercises
+     */
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "schedule_pool_has_recommended_exercises", catalog = "sportclubsystem", 
+            joinColumns = { 
+            @JoinColumn(name = "schedule_pool_id_schedule_pool", nullable = false, updatable = false) }, 
+            inverseJoinColumns = { @JoinColumn(name = "recommended_exercises_idrecommended_exercises"
+                                    ,nullable = false, updatable = false) })
+    public Set<RecommendedExercises> getRecommendedExercises() {
+        return recommendedExercises;
+    }
+
+    /**
+     * @param recommendedExercises the recommendedExercises to set
+     */
+    public void setRecommendedExercises(Set<RecommendedExercises> recommendedExercises) {
+        this.recommendedExercises = recommendedExercises;
     }
     
     
