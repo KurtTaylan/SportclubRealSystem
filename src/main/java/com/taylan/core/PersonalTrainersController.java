@@ -72,7 +72,7 @@ public class PersonalTrainersController extends AnchorPane implements Initializa
 
     public void initialize(URL location, ResourceBundle resources) {
 
-       // System.out.println("Data transfer Prepare!");
+    
 
         id.setCellValueFactory(new PropertyValueFactory<Personaltrainers, Integer>("idpersonalTrainers"));
         name.setCellValueFactory(new PropertyValueFactory<Personaltrainers, String>("name"));
@@ -80,15 +80,15 @@ public class PersonalTrainersController extends AnchorPane implements Initializa
         email.setCellValueFactory(new PropertyValueFactory<Personaltrainers, String>("email"));
         contact.setCellValueFactory(new PropertyValueFactory<Personaltrainers, String>("contact"));
 
-       // System.out.println("Data transfer Ready!");
+       
         displayRow();
 
-       // System.out.println("Data is Ready to SHOW !!");
+       
 
         // Add observable list data to the table
         personalTrainers.setItems(personData);
 
-       // System.out.println("Data SHOWED succeed!");
+       
 
     }
 
