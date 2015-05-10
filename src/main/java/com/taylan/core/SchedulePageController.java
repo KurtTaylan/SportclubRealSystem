@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
  */
 public class SchedulePageController extends AnchorPane implements Initializable {
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     ObservableList<SchedulePool> scheduleTable;
     
@@ -52,6 +53,9 @@ public class SchedulePageController extends AnchorPane implements Initializable 
 =======
 
 >>>>>>> parent of f1994c0... Schedule Part getting better.
+=======
+
+>>>>>>> parent of f1994c0... Schedule Part getting better.
     /**
      * Initializes the controller class.
      */
@@ -59,6 +63,7 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+<<<<<<< HEAD
 <<<<<<< HEAD
     /**
      * @return the application
@@ -670,6 +675,9 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     
     
     
+=======
+    
+>>>>>>> parent of f1994c0... Schedule Part getting better.
 =======
     
 >>>>>>> parent of f1994c0... Schedule Part getting better.
