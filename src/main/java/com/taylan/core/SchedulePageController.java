@@ -65,18 +65,7 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    /**
-     * @return the application
-     */
-    public MainApp getApplication() {
-        return application;
-    }
-    /**
-     * @param application the application to set
-     */
-    public void setApplication(MainApp application) {
-        this.application = application;
-    }
+    
     
     @FXML
     public void backToMenu(ActionEvent action) {
@@ -97,8 +86,21 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     
     
     
+    /*                      GETTING AND SETTING PART                            */
     
+    /**
+     * @return the application
+     */
+    public MainApp getApplication() {
+        return application;
+    }
     
+    /**
+     * @param application the application to set
+     */
+    public void setApplication(MainApp application) {
+        this.application = application;
+    }
     
     /**
      * @return the gender_textField
