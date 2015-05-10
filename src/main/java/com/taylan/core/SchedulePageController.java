@@ -1,26 +1,17 @@
 package com.taylan.core;
 
-import com.taylan.persistence.DAO.SchedulePool;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
- * @author Taylan Kurt < taylankurt34
- * @gmail.com >
+ * @author Asus
  */
 public class SchedulePageController extends AnchorPane implements Initializable {
+<<<<<<< HEAD
     
     ObservableList<SchedulePool> scheduleTable;
     
@@ -58,6 +49,9 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     
     
     private MainApp application;
+=======
+
+>>>>>>> parent of f1994c0... Schedule Part getting better.
     /**
      * Initializes the controller class.
      */
@@ -65,6 +59,7 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+<<<<<<< HEAD
     /**
      * @return the application
      */
@@ -675,4 +670,7 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     
     
     
+=======
+    
+>>>>>>> parent of f1994c0... Schedule Part getting better.
 }
