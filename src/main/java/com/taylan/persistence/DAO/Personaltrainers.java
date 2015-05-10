@@ -25,6 +25,7 @@ import org.hibernate.annotations.NamedQuery;
 @Entity
 @Table(name = "personaltrainers", catalog = "sportclubsystem")
 public class Personaltrainers implements java.io.Serializable {
+    private static final long serialVersionUID = 1L;
 
 	private Integer idpersonalTrainers;
 	private String name;

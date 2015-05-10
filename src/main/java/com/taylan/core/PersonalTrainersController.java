@@ -115,7 +115,7 @@ public class PersonalTrainersController extends AnchorPane implements Initializa
                 personData.add(trainer);
             }
         } catch (HibernateException e) {
-            e.printStackTrace();
+            throw e;
         } finally {
            // System.out.println("Data transfer Succeed!");
             session.close();
