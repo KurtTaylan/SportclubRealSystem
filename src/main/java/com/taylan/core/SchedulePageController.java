@@ -1,8 +1,15 @@
 package com.taylan.core;
 
+import com.taylan.persistence.DAO.RecommendedExercises;
 import com.taylan.persistence.DAO.SchedulePool;
+import com.taylan.persistence.util.HibernateUtil;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +19,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  * FXML Controller class
@@ -21,9 +32,6 @@ import javafx.scene.layout.AnchorPane;
  */
 public class SchedulePageController extends AnchorPane implements Initializable {
 
-    
-    ObservableList<SchedulePool> scheduleTable;
-    
     @FXML 
     private Button cancel,backToMenu,search;
     @FXML 
@@ -39,8 +47,14 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                         
                         gender_textField,level_textField,perpose_textField;
     
+    private String search_gender,search_purpose,search_levell;
+    private SchedulePool schedulePool ;
+    
+    ObservableList<SchedulePool> schedules;
+    ObservableList<RecommendedExercises> recomended_exercises;
+    
     @FXML
-    TableView<SchedulePool> schedules;
+    TableView<SchedulePool> scheduleTable;
     @FXML
     TableColumn<SchedulePool, String> monday;
     @FXML
@@ -61,8 +75,11 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     /**
      * Initializes the controller class.
      */
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         // TODO
     }    
     
@@ -78,9 +95,100 @@ public class SchedulePageController extends AnchorPane implements Initializable 
         application.gotoMenu();
     }
     
+    public void filterForSearch(ActionEvent action){
+        /* Matching columns by variables at database*/
+        initializeColumns();
+        
+            /*  gender */
+        if(male.isSelected()){
+            this.setSearch_gender("male");
+        }else if(female.isSelected()){
+            this.setSearch_gender("female");
+        }
+            /* Purpose */
+        if(fatLoss.isSelected()){
+            this.setSearch_purpose("fatLoss");
+        }else if(transform.isSelected()){
+            this.setSearch_purpose("transform");
+        }else if(bodyTraining.isSelected()){
+            this.setSearch_purpose("bodyTraining");
+        }
+             /* Level*/
+        if(beginner.isSelected()){
+            this.setSearch_levell("beginner");
+        }else if(intermediate.isSelected()){
+            this.setSearch_levell("intermediate");
+        }else if(advanced.isSelected()){
+           this.setSearch_levell("advanced");
+        }
+              
+        /* After we get filter we gonna search according to filter */
+        searchProcess();
+        
+        /* Showing results on the table */
+        scheduleTable.setItems(schedules);
+    }
+    
+    public void initializeColumns(){
+        monday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("mSchedule"));
+        tuesday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("tSchedule"));
+        wednesday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("wSchedule"));
+        thursday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("thSchedule"));
+        friday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("fSchedule"));
+        saturday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("saSchedule"));
+        sunday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("suSchedule"));
+        
+    }
     
     
-    public void getRecommendedExercises(ActionEvent action){}
+    public void searchProcess(){
+        schedules = FXCollections.observableArrayList();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        int generalId =0;
+        List<RecommendedExercises> exercises = new ArrayList<RecommendedExercises>();
+        try {
+            session.beginTransaction();
+            
+            String hql="from SchedulePool s where s.gender = :gender and "
+                + "s.perpose = :perpose and s.levell= :levell";
+            Query query =session.createQuery(hql);
+            query.setParameter("gender",this.getSearch_gender() );
+            query.setParameter("purpose",this.getSearch_purpose());
+            query.setParameter("levell",this.getSearch_levell() );
+            
+            List<SchedulePool> schedulesList = query.list();
+            schedulesList.get(generalId);
+            for (SchedulePool sc : schedulesList) {
+                schedules.add(sc);
+                int i= sc.getIdSchedulePool();
+                generalId =i;
+            }
+            schedulePool =schedulesList.get(generalId);
+            String hql2 = "Select all from RecommendedExcercises r,SchedulePool s where"
+                    + "r.id = s.idSchedulePool ";
+            
+            Query exerciseQuery = session.createQuery(hql2);
+            exerciseQuery.setParameter("id",schedulePool.getIdSchedulePool());
+            exerciseQuery.setParameter("idSchedulePool",schedulePool.getIdSchedulePool());
+            
+            
+            
+        } catch (HibernateException e) {
+            throw e;
+        } finally {
+           
+            session.close();
+        }
+        
+    
+    }
+    
+    public void getRecommendedExercises(){
+    
+    }
+    
+    
+    
     
     
     
@@ -673,6 +781,48 @@ public class SchedulePageController extends AnchorPane implements Initializable 
      */
     public void setAdvanced(RadioButton advanced) {
         this.advanced = advanced;
+    }
+
+    /**
+     * @return the search_gender
+     */
+    public String getSearch_gender() {
+        return search_gender;
+    }
+
+    /**
+     * @param search_gender the search_gender to set
+     */
+    public void setSearch_gender(String search_gender) {
+        this.search_gender = search_gender;
+    }
+
+    /**
+     * @return the search_purpose
+     */
+    public String getSearch_purpose() {
+        return search_purpose;
+    }
+
+    /**
+     * @param search_purpose the search_purpose to set
+     */
+    public void setSearch_purpose(String search_purpose) {
+        this.search_purpose = search_purpose;
+    }
+
+    /**
+     * @return the search_level
+     */
+    public String getSearch_levell() {
+        return search_levell;
+    }
+
+    /**
+     * @param search_levell the search_levell to set
+     */
+    public void setSearch_levell(String search_levell) {
+        this.search_levell = search_levell;
     }
     
     

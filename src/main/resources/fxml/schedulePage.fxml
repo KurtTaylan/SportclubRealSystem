@@ -15,15 +15,15 @@
    <children>
       <AnchorPane id="Schedule_top_line" prefHeight="484.0" prefWidth="684.0">
          <children>
-            <TableView id="Schedule_table_view" editable="true" layoutY="258.0" prefHeight="226.0" prefWidth="684.0">
+            <TableView id="Schedule_table_view" fx:id="schedules" editable="true" layoutY="258.0" prefHeight="226.0" prefWidth="684.0">
                <columns>
-                  <TableColumn prefWidth="98.0" text="Monday" />
-                  <TableColumn prefWidth="98.0" text="Tuesday" />
-                  <TableColumn prefWidth="97.0" text="Wednesday" />
-                  <TableColumn prefWidth="97.0" text="Thursday" />
-                  <TableColumn prefWidth="97.0" text="Friday" />
-                  <TableColumn prefWidth="98.0" text="Saturday" />
-                  <TableColumn prefWidth="98.0" text="Sunday" />
+                  <TableColumn fx:id="monday" prefWidth="98.0" text="Monday" />
+                  <TableColumn fx:id="tuesday" prefWidth="98.0" text="Tuesday" />
+                  <TableColumn fx:id="wednesday" prefWidth="97.0" text="Wednesday" />
+                  <TableColumn fx:id="thursday" prefWidth="97.0" text="Thursday" />
+                  <TableColumn fx:id="friday" prefWidth="97.0" text="Friday" />
+                  <TableColumn fx:id="saturday" prefWidth="98.0" text="Saturday" />
+                  <TableColumn fx:id="sunday" prefWidth="98.0" text="Sunday" />
                </columns>
             </TableView>
             <Accordion id="Schedule_accordion">
@@ -36,8 +36,8 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="112.0" prefWidth="179.0">
                                        <children>
-                                          <RadioButton layoutX="50.0" layoutY="20.0" mnemonicParsing="false" text="Male" />
-                                          <RadioButton layoutX="50.0" layoutY="60.0" mnemonicParsing="false" text="Female" />
+                                          <RadioButton fx:id="male" layoutX="50.0" layoutY="20.0" mnemonicParsing="false" text="Male" />
+                                          <RadioButton fx:id="female" layoutX="50.0" layoutY="60.0" mnemonicParsing="false" text="Female" />
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -46,9 +46,9 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="179.0">
                                        <children>
-                                          <RadioButton layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Fat Loss" />
-                                          <RadioButton layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Transform" />
-                                          <RadioButton layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Body Training" />
+                                          <RadioButton fx:id="fatLoss" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Fat Loss" />
+                                          <RadioButton fx:id="transform" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Transform" />
+                                          <RadioButton fx:id="bodyTraining" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Body Training" />
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -57,9 +57,9 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="209.0">
                                        <children>
-                                          <RadioButton layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Beginner" />
-                                          <RadioButton layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Intermediate" />
-                                          <RadioButton layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Advanced" />
+                                          <RadioButton fx:id="beginner" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Beginner" />
+                                          <RadioButton fx:id="intermediate" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Intermediate" />
+                                          <RadioButton fx:id="advanced" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Advanced" />
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -68,7 +68,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Button layoutX="65.0" layoutY="40.0" mnemonicParsing="false" text="Search" />
+                                          <Button fx:id="search" layoutX="65.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterForSearch" text="Search" />
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -93,12 +93,12 @@
                                              <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                                    <children>
-                                                      <TextField layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="chest_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                                       <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="chest_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="chest_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="chest_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="chest_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                                    </children>
                                                 </AnchorPane>
                                              </content>
@@ -115,12 +115,12 @@
                                              <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                                    <children>
-                                                      <TextField layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="back_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                                       <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="back_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="back_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="back_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="back_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                                    </children>
                                                 </AnchorPane>
                                              </content>
@@ -136,12 +136,12 @@
                                              <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                                    <children>
-                                                      <TextField layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="shoulder_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                                       <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="shoulder_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="shoulder_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="shoulder_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="shoulder_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                                    </children>
                                                 </AnchorPane>
                                              </content>
@@ -157,12 +157,12 @@
                                              <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                                    <children>
-                                                      <TextField layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="arms_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                                       <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="arms_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="arms_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="arms_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="arms_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                                    </children>
                                                 </AnchorPane>
                                              </content>
@@ -178,12 +178,12 @@
                                              <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                                    <children>
-                                                      <TextField layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="abs_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                                       <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="abs_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="abs_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="abs_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="abs_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                                    </children>
                                                 </AnchorPane>
                                              </content>
@@ -199,12 +199,12 @@
                                              <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                                    <children>
-                                                      <TextField layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="legs_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                                       <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="legs_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="legs_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="legs_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                                      <TextField fx:id="legs_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                                    </children>
                                                 </AnchorPane>
                                              </content>
@@ -226,11 +226,11 @@
             <Label id="Schedule_label" layoutX="8.0" layoutY="167.0" text="Gender:" />
             <Label id="Schedule_label" layoutX="8.0" layoutY="194.0" text="Purpose:" />
             <Label id="Schedule_label" layoutX="8.0" layoutY="224.0" text="Level:" />
-            <TextField id="Schedule_textField" layoutX="56.0" layoutY="163.0" prefHeight="25.0" prefWidth="141.0" />
-            <TextField id="Schedule_textField" layoutX="56.0" layoutY="192.0" prefHeight="25.0" prefWidth="141.0" />
-            <TextField id="Schedule_textField" layoutX="56.0" layoutY="221.0" prefHeight="25.0" prefWidth="141.0" />
-            <Button id="Schedule_button" layoutX="208.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Back to Menu" />
-            <Button id="Schedule_button" layoutX="208.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Cancel" />
+            <TextField id="Schedule_textField" layoutX="56.0" layoutY="163.0" prefHeight="25.0" prefWidth="141.0" promptText="GENDER" />
+            <TextField id="Schedule_textField" layoutX="56.0" layoutY="192.0" prefHeight="25.0" prefWidth="141.0" promptText="PUSPOSE" />
+            <TextField id="Schedule_textField" layoutX="56.0" layoutY="221.0" prefHeight="25.0" prefWidth="141.0" promptText="LEVEL" />
+            <Button id="Schedule_button" fx:id="backtoMenu" layoutX="208.0" layoutY="78.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="25.0" prefWidth="141.0" text="Back to Menu" />
+            <Button id="Schedule_button" fx:id="cancel" layoutX="208.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Cancel" />
          </children>
       </AnchorPane>
    </children>

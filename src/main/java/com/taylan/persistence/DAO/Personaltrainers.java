@@ -27,70 +27,70 @@ import org.hibernate.annotations.NamedQuery;
 public class Personaltrainers implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
 
-	private Integer idpersonalTrainers;
-	private String name;
-	private int experience;
-	private String email;
-	private String contact;
-        
-        public Personaltrainers() {
-        
-        }
+    private Integer idpersonalTrainers;
+    private String name;
+    private int experience;
+    private String email;
+    private String contact;
 
-	public Personaltrainers(Integer id,String name, int experience, String email,
-			String contact) {
-                this.idpersonalTrainers = id;        
-		this.name = name;
-		this.experience = experience;
-		this.email = email;
-		this.contact = contact;
-	}
+    public Personaltrainers() {
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "idpersonalTrainers", unique = true, nullable = false)
-	public Integer getIdpersonalTrainers() {
-		return this.idpersonalTrainers;
-	}
+    }
 
-	public void setIdpersonalTrainers(Integer idpersonalTrainers) {
-		this.idpersonalTrainers = idpersonalTrainers; 
-	}
+    public Personaltrainers(Integer id,String name, int experience, String email,
+                    String contact) {
+        this.idpersonalTrainers = id;        
+        this.name               = name;
+        this.experience         = experience;
+        this.email              = email;
+        this.contact            = contact;
+    }
 
-	@Column(name = "name", nullable = false, length = 45)
-	public String getName() {
-		return this.name;
-	}
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "idpersonalTrainers", unique = true, nullable = false)
+    public Integer getIdpersonalTrainers() {
+            return this.idpersonalTrainers;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setIdpersonalTrainers(Integer idpersonalTrainers) {
+            this.idpersonalTrainers = idpersonalTrainers; 
+    }
 
-	@Column(name = "experience", nullable = false)
-	public int getExperience() {
-		return this.experience;
-	}
+    @Column(name = "name", nullable = false, length = 45)
+    public String getName() {
+            return this.name;
+    }
 
-	public void setExperience(int experience) {
-		this.experience = experience;
-	}
+    public void setName(String name) {
+            this.name = name;
+    }
 
-	@Column(name = "email", nullable = false, length = 45)
-	public String getEmail() {
-		return this.email;
-	}
+    @Column(name = "experience", nullable = false)
+    public int getExperience() {
+            return this.experience;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setExperience(int experience) {
+            this.experience = experience;
+    }
 
-	@Column(name = "contact", nullable = false, length = 45)
-	public String getContact() {
-		return this.contact;
-	}
+    @Column(name = "email", nullable = false, length = 45)
+    public String getEmail() {
+            return this.email;
+    }
 
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
+    public void setEmail(String email) {
+            this.email = email;
+    }
+
+    @Column(name = "contact", nullable = false, length = 45)
+    public String getContact() {
+            return this.contact;
+    }
+
+    public void setContact(String contact) {
+            this.contact = contact;
+    }
 
 }

@@ -1,22 +1,17 @@
 package com.taylan.persistence.DAO;
 
-
-
-
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -57,33 +52,35 @@ public class SchedulePool implements java.io.Serializable {
     
     public SchedulePool(Integer idSchedulePool,String perpose,String gender
             ,String levell,String mSchedule,String tuSchedule,String wSchedule
-            ,String thSchedule,String fchedule,String saSchedule,String suSchedule){
-        this.idSchedulePool = idSchedulePool;
-        this.perpose = perpose;
-        this.gender = gender;
-        this.levell = levell;
-        this.mSchedule = mSchedule;
-        this.tuSchedule = tuSchedule;
-        this.wSchedule = wSchedule;
-        this.thSchedule = thSchedule;
-        this.fchedule = fchedule;
-        this.saSchedule = saSchedule;
-        this.suSchedule = suSchedule;
+            ,String thSchedule,String fchedule,String saSchedule,String suSchedule
+            ,Set<RecommendedExercises> recommendedExercises){
+        this.idSchedulePool         = idSchedulePool;
+        this.perpose                = perpose;
+        this.gender                 = gender;
+        this.levell                 = levell;
+        this.mSchedule              = mSchedule;
+        this.tuSchedule             = tuSchedule;
+        this.wSchedule              = wSchedule;
+        this.thSchedule             = thSchedule;
+        this.fchedule               = fchedule;
+        this.saSchedule             = saSchedule;
+        this.suSchedule             = suSchedule;
+        this.recommendedExercises   = recommendedExercises;
     }
     
     public SchedulePool(String perpose,String gender
             ,String levell,String mSchedule,String tuSchedule,String wSchedule
             ,String thSchedule,String fchedule,String saSchedule,String suSchedule){
-        this.perpose = perpose;
-        this.gender = gender;
-        this.levell = levell;
-        this.mSchedule = mSchedule;
-        this.tuSchedule = tuSchedule;
-        this.wSchedule = wSchedule;
-        this.thSchedule = thSchedule;
-        this.fchedule = fchedule;
-        this.saSchedule = saSchedule;
-        this.suSchedule = suSchedule;
+        this.perpose                = perpose;
+        this.gender                 = gender;
+        this.levell                 = levell;
+        this.mSchedule              = mSchedule;
+        this.tuSchedule             = tuSchedule;
+        this.wSchedule              = wSchedule;
+        this.thSchedule             = thSchedule;
+        this.fchedule               = fchedule;
+        this.saSchedule             = saSchedule;
+        this.suSchedule             = suSchedule;
     }
     
 
@@ -272,12 +269,14 @@ public class SchedulePool implements java.io.Serializable {
     /**
      * @return the recommendedExercises
      */
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    /*@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "schedule_pool_has_recommended_exercises", catalog = "sportclubsystem", 
             joinColumns = { 
             @JoinColumn(name = "schedule_pool_id_schedule_pool", nullable = false, updatable = false) }, 
             inverseJoinColumns = { @JoinColumn(name = "recommended_exercises_idrecommended_exercises"
-                                    ,nullable = false, updatable = false) })
+                                    ,nullable = false, updatable = false) })*/
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "stock")
     public Set<RecommendedExercises> getRecommendedExercises() {
         return recommendedExercises;
     }
