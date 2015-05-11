@@ -178,8 +178,8 @@ public class SchedulePageController extends AnchorPane implements Initializable 
             recommendedExercises.setSchedule(schedulePool);
             
             
-            Set<RecommendedExercises> exercisesList = schedulePool.getRecommendedExercises();
-            for (RecommendedExercises re : exercisesList) {
+            Set<RecommendedExercises> exercisesSList = schedulePool.getRecommendedExercises();
+            for (RecommendedExercises re : exercisesSList) {
                 recomended_exercises.add(re);
             }
             /* RECOMMENDED EXERCISES PART END */
