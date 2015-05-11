@@ -49,7 +49,9 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     
     private String search_gender,search_purpose,search_levell;
     private SchedulePool schedulePool ;
+    private RecommendedExercises recommendedExercises;
     
+    List<RecommendedExercises> exercisesList;
     ObservableList<SchedulePool> schedules;
     ObservableList<RecommendedExercises> recomended_exercises;
     
@@ -143,12 +145,19 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     
     public void searchProcess(){
         schedules = FXCollections.observableArrayList();
+        recomended_exercises = FXCollections.observableArrayList();
+        
+        /* OBJECTS */
+        schedulePool = new SchedulePool();
+        recommendedExercises = new RecommendedExercises();
+       
+        
+        /* HIBERNATE SESSION CREATION*/
         Session session = HibernateUtil.getSessionFactory().openSession();
         int generalId =0;
-        List<RecommendedExercises> exercises = new ArrayList<RecommendedExercises>();
         try {
             session.beginTransaction();
-            
+            /* TABLE VIEW PART START*/
             String hql="from SchedulePool s where s.gender = :gender and "
                 + "s.perpose = :perpose and s.levell= :levell";
             Query query =session.createQuery(hql);
@@ -156,41 +165,30 @@ public class SchedulePageController extends AnchorPane implements Initializable 
             query.setParameter("purpose",this.getSearch_purpose());
             query.setParameter("levell",this.getSearch_levell() );
             
+            
             List<SchedulePool> schedulesList = query.list();
-            schedulesList.get(generalId);
             for (SchedulePool sc : schedulesList) {
                 schedules.add(sc);
-                int i= sc.getIdSchedulePool();
-                generalId =i;
+                generalId =sc.getIdSchedulePool();
             }
+            /* TABLE VIEW PART END */
             schedulePool =schedulesList.get(generalId);
-            String hql2 = "Select all from RecommendedExcercises r,SchedulePool s where"
-                    + "r.id = s.idSchedulePool ";
             
-            Query exerciseQuery = session.createQuery(hql2);
-            exerciseQuery.setParameter("id",schedulePool.getIdSchedulePool());
-            exerciseQuery.setParameter("idSchedulePool",schedulePool.getIdSchedulePool());
+             /* RECOMMENDED EXERCISES PART START */
+            recommendedExercises.setSchedule(schedulePool);
             
             
-            
+            Set<RecommendedExercises> exercisesList = schedulePool.getRecommendedExercises();
+            for (RecommendedExercises re : exercisesList) {
+                recomended_exercises.add(re);
+            }
+            /* RECOMMENDED EXERCISES PART END */
         } catch (HibernateException e) {
             throw e;
         } finally {
-           
             session.close();
         }
-        
-    
     }
-    
-    public void getRecommendedExercises(){
-    
-    }
-    
-    
-    
-    
-    
     
     
     

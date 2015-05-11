@@ -13,6 +13,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *@author Taylan Kurt   <taylankurt34@gmail.com>
@@ -276,7 +278,7 @@ public class SchedulePool implements java.io.Serializable {
             inverseJoinColumns = { @JoinColumn(name = "recommended_exercises_idrecommended_exercises"
                                     ,nullable = false, updatable = false) })*/
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "stock")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_schedule_pool")
     public Set<RecommendedExercises> getRecommendedExercises() {
         return recommendedExercises;
     }
