@@ -170,7 +170,7 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                 + "s.perpose = :perpose and s.levell= :levell";
             Query query =session.createQuery(hql);
             query.setParameter("gender",this.getSearch_gender() );
-            query.setParameter("purpose",this.getSearch_purpose());
+            query.setParameter("perpose",this.getSearch_purpose());
             query.setParameter("levell",this.getSearch_levell() );
             
             List<SchedulePool> schedulesList = query.list();
