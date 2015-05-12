@@ -2,6 +2,7 @@ package com.taylan.persistence.DAO;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,8 +14,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 /**
  *@author Taylan Kurt   <taylankurt34@gmail.com>
@@ -278,7 +277,7 @@ public class SchedulePool implements java.io.Serializable {
             inverseJoinColumns = { @JoinColumn(name = "recommended_exercises_idrecommended_exercises"
                                     ,nullable = false, updatable = false) })*/
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id_schedule_pool")
+    @OneToMany(fetch = FetchType.LAZY,cascade = {CascadeType.ALL}, mappedBy = "schedule")
     public Set<RecommendedExercises> getRecommendedExercises() {
         return recommendedExercises;
     }

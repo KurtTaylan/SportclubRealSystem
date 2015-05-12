@@ -233,7 +233,7 @@ public class RecommendedExercises implements java.io.Serializable {
      * @return the schedule
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_schedule_pool", nullable = false)
+    @JoinColumn(name = "schedule_pool_id_schedule_pool", nullable = false)
     public SchedulePool getSchedule() {
         return schedule;
     }
