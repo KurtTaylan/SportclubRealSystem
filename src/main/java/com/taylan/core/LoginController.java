@@ -62,4 +62,11 @@ public class LoginController extends AnchorPane implements Initializable {
             }
         }
     }
+    public void processSignup(ActionEvent event) {
+        if (application == null){
+            
+        } else {
+            
+        }
+    }
 }
