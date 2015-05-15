@@ -25,6 +25,7 @@
                     <Image url="@../styles/LoginLogo.png" />
                   </image>
                 </ImageView>
+                        <Button layoutX="367.0" layoutY="-4.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="137.0" text="Sign up!" />
               </children>
             </AnchorPane>
           </children>
@@ -37,7 +38,6 @@
         <Label id="label2" fx:id="errorMessage" />
       </children>
     </HBox>
-      <Button layoutX="315.0" layoutY="441.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="137.0" text="Sign up!" />
   </children>
   <stylesheets>
       <URL value="@../styles/Login.css" />

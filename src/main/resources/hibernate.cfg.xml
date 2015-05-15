@@ -18,9 +18,6 @@
         
         <!-- Mapping classes -->
         <mapping class="com.taylan.persistence.DAO.Personaltrainers"/>
-        <mapping class="com.taylan.persistence.DAO.SchedulePool"/>
-        <mapping class="com.taylan.persistence.DAO.UserInfo"/>
-        <mapping class="com.taylan.persistence.DAO.RecommendedExercises"/>
         
         
         
