@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taylan.core.LoginController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="735.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taylan.core.LoginController">
   <children>
     <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -25,7 +25,7 @@
                     <Image url="@../styles/LoginLogo.png" />
                   </image>
                 </ImageView>
-                        <Button layoutX="367.0" layoutY="-4.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="137.0" text="Sign up!" />
+                        <Button layoutX="512.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="137.0" text="Sign up!" />
               </children>
             </AnchorPane>
           </children>

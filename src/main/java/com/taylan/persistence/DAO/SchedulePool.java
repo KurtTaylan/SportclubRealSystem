@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -30,44 +32,38 @@ import javax.persistence.Table;
 public class SchedulePool implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
     
+
     private Integer idSchedulePool;
+
     private String perpose;
+
     private String gender;
+
     private String levell;
+
     private String mSchedule;
+
     private String tuSchedule;
+
     private String wSchedule;
+
     private String thSchedule;
+
     private String fchedule;
+
     private String saSchedule;
+
     private String suSchedule;
     
     /* To making MANY TO MANY RELATION WITH UserInfo table */
     private Set<UserInfo> users = new HashSet<UserInfo>(0);
     
     /* To making MANY TO MANY RELATION WITH RecommendedExercises table */
+    
     private Set<RecommendedExercises> recommendedExercises = new HashSet<RecommendedExercises>(0);
     
     
     public SchedulePool(){};
-    
-    public SchedulePool(Integer idSchedulePool,String perpose,String gender
-            ,String levell,String mSchedule,String tuSchedule,String wSchedule
-            ,String thSchedule,String fchedule,String saSchedule,String suSchedule
-            ,Set<RecommendedExercises> recommendedExercises){
-        this.idSchedulePool         = idSchedulePool;
-        this.perpose                = perpose;
-        this.gender                 = gender;
-        this.levell                 = levell;
-        this.mSchedule              = mSchedule;
-        this.tuSchedule             = tuSchedule;
-        this.wSchedule              = wSchedule;
-        this.thSchedule             = thSchedule;
-        this.fchedule               = fchedule;
-        this.saSchedule             = saSchedule;
-        this.suSchedule             = suSchedule;
-        this.recommendedExercises   = recommendedExercises;
-    }
     
     public SchedulePool(String perpose,String gender
             ,String levell,String mSchedule,String tuSchedule,String wSchedule
@@ -89,8 +85,8 @@ public class SchedulePool implements java.io.Serializable {
      * @return the idSchedulePool
      */
     @Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "id_schedule_pool", unique = true, nullable = false)
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id_schedule_pool", unique = true, nullable = false)
     public Integer getIdSchedulePool() {
         return idSchedulePool;
     }
@@ -270,13 +266,6 @@ public class SchedulePool implements java.io.Serializable {
     /**
      * @return the recommendedExercises
      */
-    /*@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "schedule_pool_has_recommended_exercises", catalog = "sportclubsystem", 
-            joinColumns = { 
-            @JoinColumn(name = "schedule_pool_id_schedule_pool", nullable = false, updatable = false) }, 
-            inverseJoinColumns = { @JoinColumn(name = "recommended_exercises_idrecommended_exercises"
-                                    ,nullable = false, updatable = false) })*/
-    
     @OneToMany(fetch = FetchType.LAZY,cascade = {CascadeType.ALL}, mappedBy = "schedule")
     public Set<RecommendedExercises> getRecommendedExercises() {
         return recommendedExercises;

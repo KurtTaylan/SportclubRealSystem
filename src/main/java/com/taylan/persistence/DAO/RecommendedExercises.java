@@ -1,5 +1,7 @@
 package com.taylan.persistence.DAO;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,7 +24,6 @@ import javax.persistence.Table;
                 name = "getRecommenderExercises",
                 query = "from RecommendedExercises rec where rec.id = :id"
         )
-
 })
 @Entity
 @Table(name="recommended_exercises",catalog="sportclubsystem")
@@ -39,31 +40,18 @@ public class RecommendedExercises implements java.io.Serializable {
     private String levell;
     private String purpose;
     private String gender;
+    
+    
     private SchedulePool schedule;
-    /*private Set<SchedulePool> schedulesRecommend = new HashSet<SchedulePool>(0);*/
+    
+    
 
     public RecommendedExercises(){}
-    
-    public RecommendedExercises(Integer id,String chest,String back
-            ,String shoulder
-            ,String arms,String abs,String leg,String levell,String purpose
-            ,String gender){
-        this.id         = id;
-        this.chest      = chest;
-        this.back       = back;
-        this.shoulder   = shoulder;
-        this.arms       = arms;
-        this.abs        = abs;
-        this.leg        = leg;
-        this.levell     = levell;
-        this.purpose    = purpose;
-        this.gender     = gender;
-    }
     
     public RecommendedExercises(String chest,String back
             ,String shoulder
             ,String arms,String abs,String leg,String levell,String purpose
-            ,String gender,SchedulePool schedule){ 
+            ,String gender){ 
         this.chest      = chest;
         this.back       = back;
         this.shoulder   = shoulder;
@@ -73,7 +61,6 @@ public class RecommendedExercises implements java.io.Serializable {
         this.levell     = levell;
         this.purpose    = purpose;
         this.gender     = gender;
-        this.schedule   = schedule;
     }
     
     
@@ -82,7 +69,7 @@ public class RecommendedExercises implements java.io.Serializable {
      */
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id_recommended_exercises", unique = true, nullable = false)
+    @Column(name = "idrecommended_exercises", unique = true, nullable = false)
     public Integer getId() {
         return id;
     }
@@ -229,14 +216,17 @@ public class RecommendedExercises implements java.io.Serializable {
         this.gender = gender;
     }
 
+    
     /**
      * @return the schedule
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "schedule_pool_id_schedule_pool", nullable = false)
+    @JoinColumn(name = "id_schedule_pool", nullable = false)
     public SchedulePool getSchedule() {
         return schedule;
     }
+    
+    
 
     /**
      * @param schedule the schedule to set
@@ -244,7 +234,8 @@ public class RecommendedExercises implements java.io.Serializable {
     public void setSchedule(SchedulePool schedule) {
         this.schedule = schedule;
     }
-
+    
+                
     
     /**
      * @return the schedulesRecommend

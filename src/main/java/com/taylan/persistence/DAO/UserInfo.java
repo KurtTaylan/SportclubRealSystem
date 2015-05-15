@@ -49,18 +49,8 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     private String usernamee;
     private String passwordd;
     
+   
     private Set<SchedulePool> schedules = new HashSet<SchedulePool>(0);
-    
-    public UserInfo(Integer id,String name, String surName, String address, String email,
-                    int age,String gender,String contact){
-        this.id             = id;
-        this.name           = name;
-        this.surName        = surName;
-        this.address        = address;
-        this.age            = age;
-        this.gender         = gender;
-        this.contact        = contact;
-    }
     
     public UserInfo(String name, String surName, String address, String email,
                     int age,String gender,String contact){
@@ -210,19 +200,21 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
      */
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "user_info_has_schedule_pool", catalog = "sportclubsystem", joinColumns = { 
-                    @JoinColumn(name = "user_info_id_user", nullable = false, updatable = false) }, 
+                    @JoinColumn(name = "user_info_id_user", nullable = true, updatable = true) }, 
                     inverseJoinColumns = { @JoinColumn(name = "schedule_pool_id_schedule_pool", 
-                                    nullable = false, updatable = false) })
+                                    nullable = true, updatable = true) })
     public Set<SchedulePool> getSchedules() {
         return schedules;
     }
-
+    
+    
     /**
      * @param schedules the schedules to set
      */
     public void setSchedules(Set<SchedulePool> schedules) {
         this.schedules = schedules;
     }
+    
 
     /**
      * @return the username
@@ -233,7 +225,7 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     }
 
     /**
-     * @param username the username to set
+     * @param usernamee the usernamee to set
      */
     public void setUsernamee(String usernamee) {
         this.usernamee = usernamee;
@@ -248,9 +240,9 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     }
 
     /**
-     * @param password the password to set
+     * @param passwordd the passwordd to set
      */
-    public void setPassword(String passwordd) {
+    public void setPasswordd(String passwordd) {
         this.passwordd = passwordd;
     }
 }
