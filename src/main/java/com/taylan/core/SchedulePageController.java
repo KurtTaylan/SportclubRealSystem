@@ -4,6 +4,7 @@ import com.taylan.persistence.DAO.RecommendedExercises;
 import com.taylan.persistence.DAO.SchedulePool;
 import com.taylan.persistence.util.HibernateUtil;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -22,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  * FXML Controller class
@@ -43,10 +45,10 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                         abs_ex_1,abs_ex_2,abs_ex_3,abs_ex_4,abs_ex_5,
                         legs_ex_1,legs_ex_2,legs_ex_3,legs_ex_4,legs_ex_5,
                         
-                        gender_textField,level_textField,perpose_textField;
+                        gender_textField,levell_textField,perpose_textField;
     
     private String search_gender,search_purpose,search_levell;
-    private SchedulePool schedulePool ;
+    private SchedulePool schedulePool = new SchedulePool(); ;
     
     
     List<RecommendedExercises> exercisesList;
@@ -76,13 +78,10 @@ public class SchedulePageController extends AnchorPane implements Initializable 
      * Initializes the controller class.
      */
     
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        // TODO
+         initializeColumns();
     }    
-    
     
     @FXML
     public void backToMenu(ActionEvent action) {
@@ -96,41 +95,48 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     }
     
     public void filterForSearch(ActionEvent action){
-        /* Matching columns by variables at database*/
-        initializeColumns();
         
             /*  gender */
         if(male.isSelected()){
-            this.setSearch_gender("male");
-            
+            setSearch_gender("male");
+            System.out.println("Male");
         }else if(female.isSelected()){
-            this.setSearch_gender("female");
-            
+            setSearch_gender("female");
+            System.out.println("Female");
         }
-        gender_textField.setText(this.getSearch_gender());
+       
         
             /* Purpose */
         if(fatLoss.isSelected()){
-            this.setSearch_purpose("fatLoss"); 
+            setSearch_purpose("fatLoss"); 
+            System.out.println("FatLoss");
         }else if(transform.isSelected()){
-            this.setSearch_purpose("transform");
+            setSearch_purpose("transform");
         }else if(bodyTraining.isSelected()){
-            this.setSearch_purpose("bodyTraining");
+            setSearch_purpose("bodyTraining");
         }
-        perpose_textField.setText(this.getSearch_purpose());
+       
         
-             /* Level*/
+             /* Levell*/
         if(beginner.isSelected()){
-            this.setSearch_levell("beginner");
+            setSearch_levell("beginner");
+            System.out.println("Beginner");
         }else if(intermediate.isSelected()){
-            this.setSearch_levell("intermediate");
+            setSearch_levell("intermediate");
         }else if(advanced.isSelected()){
-           this.setSearch_levell("advanced");
+            setSearch_levell("advanced");
         }
-        level_textField.setText(this.getSearch_levell());
+        
+        
+        
               
         /* After we get filter we gonna search according to filter */
         searchProcess();
+        
+        gender_textField.setText(getSearch_gender());
+        perpose_textField.setText(getSearch_purpose());
+        levell_textField.setText(getSearch_levell());
+        
         
         /* Showing results on the table */
         scheduleTable.setItems(schedules);
@@ -138,51 +144,54 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     }
     
     public void initializeColumns(){
-        monday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("mSchedule"));
-        tuesday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("tSchedule"));
-        wednesday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("wSchedule"));
-        thursday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("thSchedule"));
-        friday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("fSchedule"));
-        saturday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("saSchedule"));
-        sunday.setCellValueFactory(new PropertyValueFactory<SchedulePool, String>("suSchedule"));
+        
+        monday.setCellValueFactory(new PropertyValueFactory <SchedulePool, String> ("moSchedule"));
+        tuesday.setCellValueFactory(new PropertyValueFactory <SchedulePool, String> ("tuSchedule"));
+        wednesday.setCellValueFactory(new PropertyValueFactory <SchedulePool, String> ("weSchedule"));
+        thursday.setCellValueFactory(new PropertyValueFactory <SchedulePool, String> ("thSchedule"));
+        friday.setCellValueFactory(new PropertyValueFactory <SchedulePool, String> ("fchedule"));
+        saturday.setCellValueFactory(new PropertyValueFactory <SchedulePool, String> ("saSchedule"));
+        sunday.setCellValueFactory(new PropertyValueFactory <SchedulePool, String> ("suSchedule"));
         
     }
     
-    
     public void searchProcess(){
+        Session session = null;
+        Transaction tx = null;
+        
         /* observableLists */
         schedules = FXCollections.observableArrayList();
         recomended_exercises = FXCollections.observableArrayList();
         
         /* SCHEDULE OBJECT */
-        schedulePool = new SchedulePool();
         
         
         /* HIBERNATE SESSION CREATION*/
-        Session session = HibernateUtil.getSessionFactory().openSession();
         int generalId =0;
-        
         try {
-            session.beginTransaction();
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            tx.setTimeout(5);
             
             /* TABLE VIEW PART START*/
-            String hql="from SchedulePool s where s.gender = :gender and "
-                + "s.perpose = :perpose and s.levell= :levell";
+            String hql="FROM SchedulePool s WHERE s.gender = :gender AND "
+                + "s.perpose = :perpose AND level=:level";
             Query query =session.createQuery(hql);
-            query.setParameter("gender",this.getSearch_gender() );
-            query.setParameter("perpose",this.getSearch_purpose());
-            query.setParameter("levell",this.getSearch_levell() );
+            query.setParameter("gender",getSearch_gender());
+            query.setParameter("perpose",getSearch_purpose());
+            query.setParameter("level",getSearch_levell());
             
             List<SchedulePool> schedulesList = query.list();
             for (SchedulePool sc : schedulesList) {
-                schedules.add(sc);
-                generalId =sc.getIdSchedulePool();
+                schedules.add(sc);     
             }
+            
             /* TABLE VIEW PART END */
             
              /* RECOMMENDED EXERCISES PART START */
-            schedulePool =schedulesList.get(generalId);
+            
             /* Take recommended Exercises whichs are belong to certain schedule */
+            /*
             Set<RecommendedExercises> exercisesSList = schedulePool.getRecommendedExercises();
             
             for (RecommendedExercises re : exercisesSList) {
@@ -228,17 +237,25 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                         break;
                     }
                 } 
-            }
+            } */
+            
             /* RECOMMENDED EXERCISES PART END */
             
+            tx.commit();
         } catch (HibernateException e) {
-            throw e;
+                try{
+    			tx.rollback();
+    		}catch(RuntimeException rbe){
+    			rbe.printStackTrace();
+    		}
+    		throw e;
         } finally {
-            session.close();
+            if(session!=null){
+    			session.close();
+    		}
         }
+        
     }
-    
-    
     
     /*                      GETTING AND SETTING PART                            */
     
@@ -271,10 +288,10 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     }
 
     /**
-     * @return the level_textField
+     * @return the levell_textField
      */
-    public TextField getLevel_textField() {
-        return level_textField;
+    public TextField getLevell_textField() {
+        return levell_textField;
     }
 
     /**
@@ -285,10 +302,10 @@ public class SchedulePageController extends AnchorPane implements Initializable 
     }
     
     /**
-     * @param level_textField the level_textField to set
+     * @param levell_textField the levell_textField to set
      */
-    public void setLevel_textField(TextField level_textField) {
-        this.level_textField = level_textField;
+    public void setLevell_textField(TextField levell_textField) {
+        this.levell_textField = levell_textField;
     }
 
     /**
@@ -450,5 +467,19 @@ public class SchedulePageController extends AnchorPane implements Initializable 
      */
     public void setSearch_levell(String search_levell) {
         this.search_levell = search_levell;
+    }
+
+    /**
+     * @return the schedulePool
+     */
+    public SchedulePool getSchedulePool() {
+        return schedulePool;
+    }
+
+    /**
+     * @param schedulePool the schedulePool to set
+     */
+    public void setSchedulePool(SchedulePool schedulePool) {
+        this.schedulePool = schedulePool;
     }
 }

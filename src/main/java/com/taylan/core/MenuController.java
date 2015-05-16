@@ -56,8 +56,12 @@ public class MenuController extends AnchorPane implements Initializable {
     }
     
     public void processSchdule(ActionEvent event) {
-    
-    
+        if (application == null){
+            // We are running in isolated FXML, possibly in Scene Builder.
+            // NO-OP.
+            return;
+        } 
+        application.gotoSchedule();
     }
     
     public void processProfile(ActionEvent event) {
@@ -66,10 +70,7 @@ public class MenuController extends AnchorPane implements Initializable {
             // NO-OP.
             return;
         }
-        
         application.gotoProfile();
-    
-    
     }
     
     public void processTrainers(ActionEvent event) {
@@ -77,8 +78,7 @@ public class MenuController extends AnchorPane implements Initializable {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             return;
-        }
-        
+        } 
         application.openTrainerPage();
     }   
     
@@ -89,7 +89,6 @@ public class MenuController extends AnchorPane implements Initializable {
             // NO-OP.
             return;
         }
-        
         application.userLogout();
     }
     

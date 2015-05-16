@@ -22,6 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import org.hibernate.Session;
 import org.hibernate.HibernateException;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -105,20 +106,31 @@ public class PersonalTrainersController extends AnchorPane implements Initializa
 
      /* Method to DISPLAY personal Trainers on the DATABASE  */
     public void displayRow() {
+        Session session = null;
+        Transaction tx = null ;
         personData = FXCollections.observableArrayList();
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        
         try {
-
-            session.beginTransaction();
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx=session.beginTransaction();
+            tx.setTimeout(5);
+            
             List<Personaltrainers> ls = session.getNamedQuery("loadPersonalTrainers").list();
             for (Personaltrainers trainer : ls) {
                 personData.add(trainer);
             }
-        } catch (HibernateException e) {
-            throw e;
+            tx.commit();
+        } catch (RuntimeException e) {
+           try{
+    			tx.rollback();
+    		}catch(RuntimeException rbe){
+    			rbe.printStackTrace();
+    		}
+    		throw e;
         } finally {
-           // System.out.println("Data transfer Succeed!");
-            session.close();
+           if(session!=null){
+    			session.close();
+    		}
         }
 
     }

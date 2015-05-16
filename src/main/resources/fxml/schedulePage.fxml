@@ -15,7 +15,7 @@
    <children>
       <AnchorPane id="Schedule_top_line" prefHeight="484.0" prefWidth="684.0">
          <children>
-            <TableView id="Schedule_table_view" fx:id="schedules" editable="true" layoutY="258.0" prefHeight="226.0" prefWidth="684.0">
+            <TableView id="Schedule_table_view" fx:id="scheduleTable" editable="true" layoutY="258.0" prefHeight="226.0" prefWidth="684.0">
                <columns>
                   <TableColumn fx:id="monday" prefWidth="98.0" text="Monday" />
                   <TableColumn fx:id="tuesday" prefWidth="98.0" text="Tuesday" />
@@ -26,59 +26,6 @@
                   <TableColumn fx:id="sunday" prefWidth="98.0" text="Sunday" />
                </columns>
             </TableView>
-            <Accordion id="Schedule_accordion">
-              <panes>
-                <TitledPane id="Schedule_search_accordion_titled_pane" mouseTransparent="true" prefHeight="159.0" prefWidth="199.0" text="Search For Schedule">
-                     <content>
-                        <TabPane id="Schedule_search_accordion_titled_pane_tab_pane" prefHeight="403.0" prefWidth="179.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                            <Tab text="Gender">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="112.0" prefWidth="179.0">
-                                       <children>
-                                          <RadioButton fx:id="male" layoutX="50.0" layoutY="20.0" mnemonicParsing="false" text="Male" />
-                                          <RadioButton fx:id="female" layoutX="50.0" layoutY="60.0" mnemonicParsing="false" text="Female" />
-                                       </children>
-                                    </AnchorPane>
-                              </content>
-                            </Tab>
-                            <Tab text="Purpose">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="179.0">
-                                       <children>
-                                          <RadioButton fx:id="fatLoss" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Fat Loss" />
-                                          <RadioButton fx:id="transform" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Transform" />
-                                          <RadioButton fx:id="bodyTraining" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Body Training" />
-                                       </children>
-                                    </AnchorPane>
-                              </content>
-                            </Tab>
-                              <Tab text="Level">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="209.0">
-                                       <children>
-                                          <RadioButton fx:id="beginner" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Beginner" />
-                                          <RadioButton fx:id="intermediate" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Intermediate" />
-                                          <RadioButton fx:id="advanced" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Advanced" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                              <Tab text="Go">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="search" layoutX="65.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterForSearch" text="Search" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                          </tabs>
-                        </TabPane>
-                     </content>
-                  </TitledPane>
-              </panes>
-            </Accordion>
             <Accordion id="Schedule_accordion" layoutX="358.0" maxHeight="258.0" prefHeight="258.0" prefWidth="327.0">
                <panes>
                 <TitledPane id="Schedule_recomended_accordion_titled_pane" mouseTransparent="true" prefHeight="199.0" prefWidth="327.0" text="Recomended Exercises" textAlignment="CENTER">
@@ -226,11 +173,56 @@
             <Label id="Schedule_label" layoutX="8.0" layoutY="167.0" text="Gender:" />
             <Label id="Schedule_label" layoutX="8.0" layoutY="194.0" text="Purpose:" />
             <Label id="Schedule_label" layoutX="8.0" layoutY="224.0" text="Level:" />
-            <TextField id="Schedule_textField" layoutX="56.0" layoutY="163.0" prefHeight="25.0" prefWidth="141.0" promptText="GENDER" />
-            <TextField id="Schedule_textField" layoutX="56.0" layoutY="192.0" prefHeight="25.0" prefWidth="141.0" promptText="PUSPOSE" />
-            <TextField id="Schedule_textField" layoutX="56.0" layoutY="221.0" prefHeight="25.0" prefWidth="141.0" promptText="LEVEL" />
+            <TextField id="Schedule_textField" fx:id="gender_textField" editable="false" layoutX="56.0" layoutY="163.0" prefHeight="25.0" prefWidth="141.0" />
+            <TextField id="Schedule_textField" fx:id="perpose_textField" editable="false" layoutX="56.0" layoutY="192.0" prefHeight="25.0" prefWidth="141.0" />
+            <TextField id="Schedule_textField" fx:id="levell_textField" editable="false" layoutX="56.0" layoutY="221.0" prefHeight="25.0" prefWidth="141.0" />
             <Button id="Schedule_button" fx:id="backtoMenu" layoutX="208.0" layoutY="78.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="25.0" prefWidth="141.0" text="Back to Menu" />
             <Button id="Schedule_button" fx:id="cancel" layoutX="208.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Cancel" />
+            <TabPane id="Schedule_search_accordion_titled_pane_tab_pane" prefHeight="143.0" prefWidth="203.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Gender">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="112.0" prefWidth="179.0">
+                           <children>
+                              <RadioButton fx:id="male" layoutX="50.0" layoutY="20.0" mnemonicParsing="false" text="Male" />
+                              <RadioButton fx:id="female" layoutX="50.0" layoutY="60.0" mnemonicParsing="false" text="Female" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Purpose">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="179.0">
+                           <children>
+                              <RadioButton fx:id="fatLoss" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Fat Loss" />
+                              <RadioButton fx:id="transform" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Transform" />
+                              <RadioButton fx:id="bodyTraining" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Body Training" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Level">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="209.0">
+                           <children>
+                              <RadioButton fx:id="beginner" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Beginner" />
+                              <RadioButton fx:id="intermediate" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Intermediate" />
+                              <RadioButton fx:id="advanced" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Advanced" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Go">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="search" layoutX="65.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterForSearch" text="Search" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
          </children>
       </AnchorPane>
    </children>

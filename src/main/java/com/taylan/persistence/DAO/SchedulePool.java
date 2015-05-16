@@ -9,8 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -41,11 +39,11 @@ public class SchedulePool implements java.io.Serializable {
 
     private String levell;
 
-    private String mSchedule;
+    private String moSchedule;
 
     private String tuSchedule;
 
-    private String wSchedule;
+    private String weSchedule;
 
     private String thSchedule;
 
@@ -66,14 +64,14 @@ public class SchedulePool implements java.io.Serializable {
     public SchedulePool(){};
     
     public SchedulePool(String perpose,String gender
-            ,String levell,String mSchedule,String tuSchedule,String wSchedule
+            ,String levell,String moSchedule,String tuSchedule,String weSchedule
             ,String thSchedule,String fchedule,String saSchedule,String suSchedule){
         this.perpose                = perpose;
         this.gender                 = gender;
         this.levell                 = levell;
-        this.mSchedule              = mSchedule;
+        this.moSchedule              = moSchedule;
         this.tuSchedule             = tuSchedule;
-        this.wSchedule              = wSchedule;
+        this.weSchedule              = weSchedule;
         this.thSchedule             = thSchedule;
         this.fchedule               = fchedule;
         this.saSchedule             = saSchedule;
@@ -144,18 +142,18 @@ public class SchedulePool implements java.io.Serializable {
     }
 
     /**
-     * @return the mSchedule
+     * @return the moSchedule
      */
     @Column(name = "m_schedule", nullable = true, length = 45)
-    public String getmSchedule() {
-        return mSchedule;
+    public String getMoSchedule() {
+        return moSchedule;
     }
 
     /**
-     * @param mSchedule the mSchedule to set
+     * @param moSchedule the moSchedule to set
      */
-    public void setmSchedule(String mSchedule) {
-        this.mSchedule = mSchedule;
+    public void setMoSchedule(String moSchedule) {
+        this.moSchedule = moSchedule;
     }
 
     /**
@@ -174,18 +172,18 @@ public class SchedulePool implements java.io.Serializable {
     }
 
     /**
-     * @return the wSchedule
+     * @return the weSchedule
      */
     @Column(name = "w_schedule", nullable = true, length = 45)
-    public String getwSchedule() {
-        return wSchedule;
+    public String getWeSchedule() {
+        return weSchedule;
     }
 
     /**
-     * @param wSchedule the wSchedule to set
+     * @param weSchedule the weSchedule to set
      */
-    public void setwSchedule(String wSchedule) {
-        this.wSchedule = wSchedule;
+    public void setWeSchedule(String weSchedule) {
+        this.weSchedule = weSchedule;
     }
 
     /**

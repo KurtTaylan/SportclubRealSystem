@@ -120,6 +120,14 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void gotoSchedule() {
+        try {
+            SchedulePageController schedule = (SchedulePageController) replaceSceneContent("/fxml/schedulePage.fxml");
+            schedule.setApplication(this);
+        } catch (Exception ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void openTrainerPage() {
         try {
