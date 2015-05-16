@@ -195,13 +195,12 @@ public class SchedulePageController extends AnchorPane implements Initializable 
             schedulePool = schedulesList.get(0);
             Set<RecommendedExercises> exercisesSList =schedulePool.getRecommendedExercises();
             
-             for (Iterator iterator =exercisesSList.iterator();iterator.hasNext();) {
-                int i = 0;
+            for (Iterator iterator =exercisesSList.iterator();iterator.hasNext();) {
                 
+                for(int i = 0; i<=4;i++){
                 RecommendedExercises re =(RecommendedExercises)iterator.next();
                 
-                    switch(i){
-                        case 0:
+                    if(i==0){
                             chest_ex_1.setText(re.getChest());
                             back_ex_1.setText(re.getBack());
                             shoulder_ex_1.setText(re.getShoulder());
@@ -209,41 +208,43 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                             abs_ex_1.setText(re.getAbs());
                             legs_ex_1.setText(re.getLeg());
                             
-                        case 1:
+                    }else if(i==1){
+                        
                             chest_ex_2.setText(re.getChest());
                             back_ex_2.setText(re.getBack());
                             shoulder_ex_2.setText(re.getShoulder());
                             arms_ex_2.setText(re.getArms());
                             abs_ex_2.setText(re.getAbs());
                             legs_ex_2.setText(re.getLeg());
-                        case 2:
+                            
+                    }else if(i==2){
                             chest_ex_3.setText(re.getChest());
                             back_ex_3.setText(re.getBack());
                             shoulder_ex_3.setText(re.getShoulder());
                             arms_ex_3.setText(re.getArms());
                             abs_ex_3.setText(re.getAbs());
                             legs_ex_3.setText(re.getLeg());
-                        case 3:
+                            
+                    }else if(i==3){    
                             chest_ex_4.setText(re.getChest());
                             back_ex_4.setText(re.getBack());
                             shoulder_ex_4.setText(re.getShoulder());
                             arms_ex_4.setText(re.getArms());
                             abs_ex_4.setText(re.getAbs());
                             legs_ex_4.setText(re.getLeg());
-                        case 4:
+                            
+                    }else if(i==4){    
                             chest_ex_5.setText(re.getChest());
                             back_ex_5.setText(re.getBack());
                             shoulder_ex_5.setText(re.getShoulder());
                             arms_ex_5.setText(re.getArms());
                             abs_ex_5.setText(re.getAbs());
                             legs_ex_5.setText(re.getLeg());
-                        break;
+                            
                     }
-                i++;
+                }
             } 
              
-           
-            
             /* RECOMMENDED EXERCISES PART END */
             
             tx.commit();
