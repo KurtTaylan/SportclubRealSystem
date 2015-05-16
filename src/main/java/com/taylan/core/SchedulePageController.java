@@ -48,7 +48,7 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                         gender_textField,levell_textField,perpose_textField;
     
     private String search_gender,search_purpose,search_levell;
-    private SchedulePool schedulePool = new SchedulePool(); ;
+    private SchedulePool schedulePool ;
     
     
     List<RecommendedExercises> exercisesList;
@@ -183,21 +183,23 @@ public class SchedulePageController extends AnchorPane implements Initializable 
             
             List<SchedulePool> schedulesList = query.list();
             for (SchedulePool sc : schedulesList) {
-                schedules.add(sc);     
+                schedules.add(sc);
             }
             
             /* TABLE VIEW PART END */
             
              /* RECOMMENDED EXERCISES PART START */
-            
+           
             /* Take recommended Exercises whichs are belong to certain schedule */
-            /*
-            Set<RecommendedExercises> exercisesSList = schedulePool.getRecommendedExercises();
+           
+            schedulePool = schedulesList.get(0);
+            Set<RecommendedExercises> exercisesSList =schedulePool.getRecommendedExercises();
             
-            for (RecommendedExercises re : exercisesSList) {
-                recomended_exercises.add(re);
+             for (Iterator iterator =exercisesSList.iterator();iterator.hasNext();) {
+                int i = 0;
                 
-                for(int i=0;i<=4;i++){
+                RecommendedExercises re =(RecommendedExercises)iterator.next();
+                
                     switch(i){
                         case 0:
                             chest_ex_1.setText(re.getChest());
@@ -206,6 +208,7 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                             arms_ex_1.setText(re.getArms());
                             abs_ex_1.setText(re.getAbs());
                             legs_ex_1.setText(re.getLeg());
+                            
                         case 1:
                             chest_ex_2.setText(re.getChest());
                             back_ex_2.setText(re.getBack());
@@ -236,8 +239,10 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                             legs_ex_5.setText(re.getLeg());
                         break;
                     }
-                } 
-            } */
+                i++;
+            } 
+             
+           
             
             /* RECOMMENDED EXERCISES PART END */
             
