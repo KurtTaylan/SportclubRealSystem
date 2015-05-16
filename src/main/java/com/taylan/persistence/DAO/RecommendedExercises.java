@@ -1,7 +1,5 @@
 package com.taylan.persistence.DAO;
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,9 +35,7 @@ public class RecommendedExercises implements java.io.Serializable {
     private String arms;
     private String abs;
     private String leg;
-    private String levell;
-    private String purpose;
-    private String gender;
+    
     
     
     private SchedulePool schedule;
@@ -50,17 +46,14 @@ public class RecommendedExercises implements java.io.Serializable {
     
     public RecommendedExercises(String chest,String back
             ,String shoulder
-            ,String arms,String abs,String leg,String levell,String purpose
-            ,String gender){ 
+            ,String arms,String abs,String leg){ 
         this.chest      = chest;
         this.back       = back;
         this.shoulder   = shoulder;
         this.arms       = arms;
         this.abs        = abs;
         this.leg        = leg;
-        this.levell     = levell;
-        this.purpose    = purpose;
-        this.gender     = gender;
+        
     }
     
     
@@ -170,52 +163,6 @@ public class RecommendedExercises implements java.io.Serializable {
     public void setLeg(String leg) {
         this.leg = leg;
     }
-
-    /**
-     * @return the levell
-     */
-    @Column(name="levell", nullable=true, length=45)
-    public String getLevell() {
-        return levell;
-    }
-
-    /**
-     * @param levell the levell to set
-     */
-    public void setLevell(String levell) {
-        this.levell = levell;
-    }
-
-    /**
-     * @return the purpose
-     */
-    @Column(name="purpose", nullable=true, length=45)
-    public String getPurpose() {
-        return purpose;
-    }
-
-    /**
-     * @param purpose the purpose to set
-     */
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
-
-    /**
-     * @return the gender
-     */
-    @Column(name="gender", nullable=true, length=45)
-    public String getGender() {
-        return gender;
-    }
-
-    /**
-     * @param gender the gender to set
-     */
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     
     /**
      * @return the schedule

@@ -26,145 +26,6 @@
                   <TableColumn fx:id="sunday" prefWidth="98.0" text="Sunday" />
                </columns>
             </TableView>
-            <Accordion id="Schedule_accordion" layoutX="358.0" maxHeight="258.0" prefHeight="258.0" prefWidth="327.0">
-               <panes>
-                <TitledPane id="Schedule_recomended_accordion_titled_pane" mouseTransparent="true" prefHeight="199.0" prefWidth="327.0" text="Recomended Exercises" textAlignment="CENTER">
-                     <content>
-                        <TabPane prefHeight="212.0" prefWidth="296.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                            <Tab text="Chest">
-                                 <content>
-                                    <AnchorPane prefHeight="203.0" prefWidth="329.0">
-                                       <children>
-                                          <ScrollPane prefHeight="200.0" prefWidth="327.0">
-                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
-                                                   <children>
-                                                      <TextField fx:id="chest_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField fx:id="chest_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="chest_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="chest_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="chest_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                             </content>
-                                          </ScrollPane>
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                            </Tab>
-                            <Tab text="Back">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane prefHeight="200.0" prefWidth="327.0">
-                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
-                                                   <children>
-                                                      <TextField fx:id="back_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField fx:id="back_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="back_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="back_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="back_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                             </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                              </content>
-                            </Tab>
-                              <Tab text="Shoulders">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane prefHeight="200.0" prefWidth="327.0">
-                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
-                                                   <children>
-                                                      <TextField fx:id="shoulder_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField fx:id="shoulder_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="shoulder_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="shoulder_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="shoulder_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                             </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab text="Arms">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane prefHeight="200.0" prefWidth="327.0">
-                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
-                                                   <children>
-                                                      <TextField fx:id="arms_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField fx:id="arms_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="arms_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="arms_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="arms_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                             </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab text="Abs">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane prefHeight="200.0" prefWidth="327.0">
-                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
-                                                   <children>
-                                                      <TextField fx:id="abs_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField fx:id="abs_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="abs_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="abs_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="abs_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                             </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab text="Legs">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <ScrollPane prefHeight="200.0" prefWidth="327.0">
-                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
-                                                   <children>
-                                                      <TextField fx:id="legs_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                                      <TextField fx:id="legs_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="legs_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="legs_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                                      <TextField fx:id="legs_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                             </content>
-                                          </ScrollPane>
-                                       </children></AnchorPane>
-                                 </content>
-                              </Tab>
-                          </tabs>
-                        </TabPane>
-                     </content>
-                  </TitledPane>
-               </panes>
-            </Accordion>
             <ImageView id="Schedule_image_view" fitHeight="96.0" fitWidth="159.0" focusTraversable="true" layoutX="199.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../styles/LoginLogo.png" />
@@ -217,6 +78,142 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="search" layoutX="65.0" layoutY="40.0" mnemonicParsing="false" onAction="#filterForSearch" text="Search" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <TabPane layoutX="357.0" prefHeight="226.0" prefWidth="328.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Chest">
+                     <content>
+                        <AnchorPane prefHeight="203.0" prefWidth="329.0">
+                           <children>
+                              <ScrollPane prefHeight="200.0" prefWidth="327.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
+                                       <children>
+                                          <TextField fx:id="chest_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
+                                          <TextField fx:id="chest_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="chest_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="chest_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="chest_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Back">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="200.0" prefWidth="327.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
+                                       <children>
+                                          <TextField fx:id="back_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
+                                          <TextField fx:id="back_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="back_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="back_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="back_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Shoulders">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="200.0" prefWidth="327.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
+                                       <children>
+                                          <TextField fx:id="shoulder_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
+                                          <TextField fx:id="shoulder_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="shoulder_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="shoulder_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="shoulder_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Arms">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="200.0" prefWidth="327.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
+                                       <children>
+                                          <TextField fx:id="arms_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
+                                          <TextField fx:id="arms_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="arms_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="arms_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="arms_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Abs">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="200.0" prefWidth="327.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
+                                       <children>
+                                          <TextField fx:id="abs_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
+                                          <TextField fx:id="abs_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="abs_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="abs_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="abs_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Legs">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane prefHeight="200.0" prefWidth="327.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
+                                       <children>
+                                          <TextField fx:id="legs_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
+                                          <TextField fx:id="legs_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="legs_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="legs_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="legs_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
                            </children>
                         </AnchorPane>
                      </content>
