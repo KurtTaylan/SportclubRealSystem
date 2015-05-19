@@ -11,6 +11,7 @@ import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,6 +20,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -28,7 +34,7 @@ import org.hibernate.Transaction;
 /**
  * FXML Controller class
  *
- * @author Taylan Kurt
+ * @author Taylan Kurt  <taylankurt34@gmail.com>
  */
 public class SchedulePageController extends AnchorPane implements Initializable {
 
@@ -201,45 +207,45 @@ public class SchedulePageController extends AnchorPane implements Initializable 
                 RecommendedExercises re =(RecommendedExercises)iterator.next();
                 
                     if(i==0){
-                            chest_ex_1.setText(re.getChest());
-                            back_ex_1.setText(re.getBack());
-                            shoulder_ex_1.setText(re.getShoulder());
-                            arms_ex_1.setText(re.getArms());
-                            abs_ex_1.setText(re.getAbs());
-                            legs_ex_1.setText(re.getLeg());
+                        chest_ex_1.setText(re.getChest());dragAndDrop(chest_ex_1,scheduleTable);
+                        back_ex_1.setText(re.getBack());dragAndDrop(back_ex_1,scheduleTable);
+                        shoulder_ex_1.setText(re.getShoulder());dragAndDrop(shoulder_ex_1,scheduleTable);
+                        arms_ex_1.setText(re.getArms());dragAndDrop(arms_ex_1,scheduleTable);
+                        abs_ex_1.setText(re.getAbs());dragAndDrop(abs_ex_1,scheduleTable);
+                        legs_ex_1.setText(re.getLeg());dragAndDrop(legs_ex_1,scheduleTable);
                             
                     }else if(i==1){
+                        chest_ex_2.setText(re.getChest());dragAndDrop(chest_ex_2,scheduleTable);
+                        back_ex_2.setText(re.getBack());dragAndDrop(back_ex_2,scheduleTable);
+                        shoulder_ex_2.setText(re.getShoulder());dragAndDrop(shoulder_ex_2,scheduleTable);
+                        arms_ex_2.setText(re.getArms());dragAndDrop(arms_ex_2,scheduleTable);
+                        abs_ex_2.setText(re.getAbs());dragAndDrop(abs_ex_2,scheduleTable);
+                        legs_ex_2.setText(re.getLeg());dragAndDrop(legs_ex_2,scheduleTable);
                         
-                            chest_ex_2.setText(re.getChest());
-                            back_ex_2.setText(re.getBack());
-                            shoulder_ex_2.setText(re.getShoulder());
-                            arms_ex_2.setText(re.getArms());
-                            abs_ex_2.setText(re.getAbs());
-                            legs_ex_2.setText(re.getLeg());
                             
                     }else if(i==2){
-                            chest_ex_3.setText(re.getChest());
-                            back_ex_3.setText(re.getBack());
-                            shoulder_ex_3.setText(re.getShoulder());
-                            arms_ex_3.setText(re.getArms());
-                            abs_ex_3.setText(re.getAbs());
-                            legs_ex_3.setText(re.getLeg());
+                        chest_ex_3.setText(re.getChest());dragAndDrop(chest_ex_3,scheduleTable);
+                        back_ex_3.setText(re.getBack());dragAndDrop(back_ex_3,scheduleTable);
+                        shoulder_ex_3.setText(re.getShoulder());dragAndDrop(shoulder_ex_3,scheduleTable);
+                        arms_ex_3.setText(re.getArms());dragAndDrop(arms_ex_3,scheduleTable);
+                        abs_ex_3.setText(re.getAbs());dragAndDrop(abs_ex_3,scheduleTable);
+                        legs_ex_3.setText(re.getLeg());dragAndDrop(legs_ex_3,scheduleTable);
                             
                     }else if(i==3){    
-                            chest_ex_4.setText(re.getChest());
-                            back_ex_4.setText(re.getBack());
-                            shoulder_ex_4.setText(re.getShoulder());
-                            arms_ex_4.setText(re.getArms());
-                            abs_ex_4.setText(re.getAbs());
-                            legs_ex_4.setText(re.getLeg());
+                        chest_ex_4.setText(re.getChest());dragAndDrop(chest_ex_4,scheduleTable);
+                        back_ex_4.setText(re.getBack());dragAndDrop(back_ex_4,scheduleTable);
+                        shoulder_ex_4.setText(re.getShoulder());dragAndDrop(shoulder_ex_4,scheduleTable);
+                        arms_ex_4.setText(re.getArms());dragAndDrop(arms_ex_4,scheduleTable);
+                        abs_ex_4.setText(re.getAbs());dragAndDrop(abs_ex_4,scheduleTable);
+                        legs_ex_4.setText(re.getLeg());dragAndDrop(legs_ex_4,scheduleTable);
                             
                     }else if(i==4){    
-                            chest_ex_5.setText(re.getChest());
-                            back_ex_5.setText(re.getBack());
-                            shoulder_ex_5.setText(re.getShoulder());
-                            arms_ex_5.setText(re.getArms());
-                            abs_ex_5.setText(re.getAbs());
-                            legs_ex_5.setText(re.getLeg());
+                        chest_ex_5.setText(re.getChest());dragAndDrop(chest_ex_5,scheduleTable);
+                        back_ex_5.setText(re.getBack());dragAndDrop(back_ex_5,scheduleTable);
+                        shoulder_ex_5.setText(re.getShoulder());dragAndDrop(shoulder_ex_5,scheduleTable);
+                        arms_ex_5.setText(re.getArms());dragAndDrop(arms_ex_5,scheduleTable);
+                        abs_ex_5.setText(re.getAbs());dragAndDrop(abs_ex_5,scheduleTable);
+                        legs_ex_5.setText(re.getLeg());dragAndDrop(legs_ex_5,scheduleTable);
                             
                     }
                 }
@@ -259,6 +265,122 @@ public class SchedulePageController extends AnchorPane implements Initializable 
             if(session!=null){
     			session.close();
     		}
+        }
+        
+    }
+    
+    /*                      DROP AND DROP SESSION                             */
+   
+    public void dragAndDrop(final TextField source,final TableView target){
+        
+        source.setOnDragDetected(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent event) {
+                /* drag was detected, start a drag-and-drop gesture*/
+                /* allow any transfer mode */
+                Dragboard db = source.startDragAndDrop(TransferMode.ANY);
+
+                /* Put a string on a dragboard */
+                ClipboardContent content = new ClipboardContent();
+                content.putString(source.getText());
+                db.setContent(content);
+
+                event.consume();
+            }
+        });
+        
+        target.setOnDragOver(new EventHandler<DragEvent>() {
+            public void handle(DragEvent event) {
+                /* data is dragged over the target */
+                /* accept it only if it is not dragged from the same node 
+                * and if it has a string data */
+                if (event.getGestureSource() != target &&
+                    event.getDragboard().hasString()) {
+                    /* allow for both copying and moving, whatever user chooses */
+                    event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+                }
+
+                event.consume();
+            }
+        });
+        
+        target.setOnDragEntered(new EventHandler<DragEvent>() {
+            public void handle(DragEvent event) {
+                /* the drag-and-drop gesture entered the target */
+                /* show to the user that it is an actual gesture target */
+                if (event.getGestureSource() != target &&
+                    event.getDragboard().hasString()) {
+                    
+                }
+                event.consume();
+            }
+        });
+        
+        target.setOnDragExited(new EventHandler<DragEvent>() {
+            public void handle(DragEvent event) {
+                /* mouse moved away, remove the graphical cues */
+                
+
+                event.consume();
+            }
+        });
+    
+        target.setOnDragDropped(new EventHandler<DragEvent>() {
+            public void handle(DragEvent event) {
+                /* data dropped */
+                /* if there is a string data on dragboard, read it and use it */
+                Dragboard db = event.getDragboard();
+                boolean success = false;
+                if (db.hasString()) {
+                   
+                   success = true;
+                }
+                /* let the source know whether the string was successfully 
+                 * transferred and used */
+                event.setDropCompleted(success);
+                
+                event.consume();
+            }
+        });
+        
+        source.setOnDragDone(new EventHandler<DragEvent>() {
+            public void handle(DragEvent event) {
+                /* the drag and drop gesture ended */
+                /* if the data was successfully moved, clear it */
+                if (event.getTransferMode() == TransferMode.MOVE) {
+                    source.setText("");
+                }   
+                event.consume();
+            }
+        });
+    
+    }
+    
+    public void radioCheck(MouseEvent event){
+        if(male.isSelected() && female.isSelected() ){
+           female.setSelected(false);
+           male.setSelected(false);
+        }
+        
+        if(fatLoss.isSelected() && transform.isSelected()){
+           fatLoss.setSelected(false);
+           transform.setSelected(false);
+        }else if(fatLoss.isSelected() && bodyTraining.isSelected()){
+           fatLoss.setSelected(false);
+           bodyTraining.setSelected(false);
+        }else if(bodyTraining.isSelected() && transform.isSelected()){
+           bodyTraining.setSelected(false);
+           transform.setSelected(false);
+        }
+        
+        if(beginner.isSelected() && intermediate.isSelected() ){
+           beginner.setSelected(false);
+           intermediate.setSelected(false);
+        }else if(intermediate.isSelected() && advanced.isSelected() ){
+           intermediate.setSelected(false);
+           advanced.setSelected(false);
+        }else if(advanced.isSelected() && beginner.isSelected() ){
+           advanced.setSelected(false);
+           beginner.setSelected(false);
         }
         
     }

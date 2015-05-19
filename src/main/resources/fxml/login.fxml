@@ -25,7 +25,7 @@
                     <Image url="@../styles/LoginLogo.png" />
                   </image>
                 </ImageView>
-                        <Button layoutX="512.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="137.0" text="Sign up!" />
+                        <Button layoutX="512.0" mnemonicParsing="false" onAction="#processSignup" prefHeight="51.0" prefWidth="137.0" text="Sign up!" />
               </children>
             </AnchorPane>
           </children>

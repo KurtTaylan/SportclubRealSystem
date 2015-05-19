@@ -2,12 +2,9 @@ package com.taylan.core;
 
 import com.taylan.Model.User;
 import com.taylan.security.Authenticator;
-
 import java.io.InputStream;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -48,13 +45,6 @@ public class MainApp extends Application {
         } catch (Exception ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-       //Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
-      //  Scene scene = new Scene(root);
-        // scene.getStylesheets().add("/styles/Styles.css");
-        /*stage.setTitle("Sport Club DesktopSystem");
-         stage.setScene(scene);
-         stage.show();*/
     }
 
     private Initializable replaceSceneContent(String fxml) throws Exception {
@@ -94,7 +84,7 @@ public class MainApp extends Application {
         }
     }
 
-    private void gotoLogin() {
+    public void gotoLogin() {
         try {
             LoginController login = (LoginController) replaceSceneContent("/fxml/login.fxml");
             login.setApplication(this);
@@ -133,6 +123,14 @@ public class MainApp extends Application {
         try {
             PersonalTrainersController pt = (PersonalTrainersController) replaceSceneContent("/fxml/personalTrainersPage.fxml");
             pt.setApplication(this);
+        } catch (Exception ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void gotoSignUpPage() {
+        try {
+            SignupController su = (SignupController) replaceSceneContent("/fxml/signup.fxml");
+            su.setApplication(this);
         } catch (Exception ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }

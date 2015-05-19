@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.media.*?>
-<?import javafx.scene.web.*?>
-<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
-<?import java.net.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -26,11 +21,7 @@
                   <TableColumn fx:id="sunday" prefWidth="98.0" text="Sunday" />
                </columns>
             </TableView>
-            <ImageView id="Schedule_image_view" fitHeight="96.0" fitWidth="159.0" focusTraversable="true" layoutX="199.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../styles/LoginLogo.png" />
-               </image>
-            </ImageView>
+            
             <Label id="Schedule_label" layoutX="8.0" layoutY="167.0" text="Gender:" />
             <Label id="Schedule_label" layoutX="8.0" layoutY="194.0" text="Purpose:" />
             <Label id="Schedule_label" layoutX="8.0" layoutY="224.0" text="Level:" />
@@ -45,8 +36,8 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="112.0" prefWidth="179.0">
                            <children>
-                              <RadioButton fx:id="male" layoutX="50.0" layoutY="20.0" mnemonicParsing="false" text="Male" />
-                              <RadioButton fx:id="female" layoutX="50.0" layoutY="60.0" mnemonicParsing="false" text="Female" />
+                              <RadioButton fx:id="male" layoutX="50.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#radioCheck" text="Male" />
+                              <RadioButton fx:id="female" layoutX="50.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#radioCheck" text="Female" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -55,9 +46,9 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="179.0">
                            <children>
-                              <RadioButton fx:id="fatLoss" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Fat Loss" />
-                              <RadioButton fx:id="transform" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Transform" />
-                              <RadioButton fx:id="bodyTraining" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Body Training" />
+                              <RadioButton fx:id="fatLoss" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#radioCheck" text="Fat Loss" />
+                              <RadioButton fx:id="transform" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#radioCheck" text="Transform" />
+                              <RadioButton fx:id="bodyTraining" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" onMouseClicked="#radioCheck" text="Body Training" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -66,9 +57,9 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="209.0">
                            <children>
-                              <RadioButton fx:id="beginner" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" text="Beginner" />
-                              <RadioButton fx:id="intermediate" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" text="Intermediate" />
-                              <RadioButton fx:id="advanced" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" text="Advanced" />
+                              <RadioButton fx:id="beginner" layoutX="50.0" layoutY="15.0" mnemonicParsing="false" onMouseReleased="#radioCheck" text="Beginner" />
+                              <RadioButton fx:id="intermediate" layoutX="50.0" layoutY="45.0" mnemonicParsing="false" onMouseReleased="#radioCheck" text="Intermediate" />
+                              <RadioButton fx:id="advanced" layoutX="50.0" layoutY="75.0" mnemonicParsing="false" onMouseReleased="#radioCheck" text="Advanced" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -94,12 +85,12 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
-                                          <TextField fx:id="chest_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                          <TextField fx:id="chest_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="chest_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="chest_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="chest_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="chest_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="93.0" layoutY="6.0" text="Recommended Exercise" />
+                                          <TextField fx:id="chest_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="chest_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="chest_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="chest_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -116,12 +107,12 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
-                                          <TextField fx:id="back_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="back_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                           <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                          <TextField fx:id="back_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="back_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="back_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="back_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="back_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="back_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="back_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="back_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -138,12 +129,12 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
-                                          <TextField fx:id="shoulder_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="shoulder_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                           <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                          <TextField fx:id="shoulder_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="shoulder_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="shoulder_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="shoulder_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="shoulder_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="shoulder_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="shoulder_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="shoulder_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -160,12 +151,12 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
-                                          <TextField fx:id="arms_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="arms_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                           <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                          <TextField fx:id="arms_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="arms_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="arms_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="arms_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="arms_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="arms_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="arms_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="arms_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -182,12 +173,12 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
-                                          <TextField fx:id="abs_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="abs_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                           <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                          <TextField fx:id="abs_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="abs_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="abs_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="abs_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="abs_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="abs_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="abs_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="abs_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -204,12 +195,12 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
-                                          <TextField fx:id="legs_ex_1" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="legs_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                           <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
-                                          <TextField fx:id="legs_ex_2" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="legs_ex_3" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="legs_ex_4" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <TextField fx:id="legs_ex_5" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="legs_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="legs_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="legs_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <TextField fx:id="legs_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>

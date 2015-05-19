@@ -44,7 +44,7 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     private String address;
     private String email;
     private String contact;
-    private int age;
+    private String age;
     private String gender;
     private String usernamee;
     private String passwordd;
@@ -53,7 +53,7 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     private Set<SchedulePool> schedules = new HashSet<SchedulePool>(0);
     
     public UserInfo(String name, String surName, String address, String email,
-                    int age,String gender,String contact){
+                    String age,String gender,String contact){
         this.name           = name;
         this.surName        = surName;
         this.address        = address;
@@ -128,15 +128,15 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     /**
      * @return the age
      */
-    @Column(name = "age", nullable = false, length = 45)
-    public int getAge() {
+    @Column(name = "age", nullable = false, length = 2)
+    public String getAge() {
         return age;
     }
 
     /**
      * @param age the age to set
      */
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
