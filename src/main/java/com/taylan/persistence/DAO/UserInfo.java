@@ -1,8 +1,6 @@
 package com.taylan.persistence.DAO;
 
 import com.taylan.persistence.absract.PersonAbstract;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,11 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -48,9 +44,7 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     private String gender;
     private String usernamee;
     private String passwordd;
-    
-   
-    private Set<SchedulePool> schedules = new HashSet<SchedulePool>(0);
+    private UserSchedule schedule;
     
     public UserInfo(String name, String surName, String address, String email,
                     String age,String gender,String contact){
@@ -196,27 +190,6 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     }
 
     /**
-     * @return the schedules // Connection definition between user_info and schedule_pool tables
-     */
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_info_has_schedule_pool", catalog = "sportclubsystem", joinColumns = { 
-                    @JoinColumn(name = "user_info_id_user", nullable = true, updatable = true) }, 
-                    inverseJoinColumns = { @JoinColumn(name = "schedule_pool_id_schedule_pool", 
-                                    nullable = true, updatable = true) })
-    public Set<SchedulePool> getSchedules() {
-        return schedules;
-    }
-    
-    
-    /**
-     * @param schedules the schedules to set
-     */
-    public void setSchedules(Set<SchedulePool> schedules) {
-        this.schedules = schedules;
-    }
-    
-
-    /**
      * @return the username
      */
     @Column(name = "username", nullable = false, length = 45)
@@ -244,5 +217,20 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
      */
     public void setPasswordd(String passwordd) {
         this.passwordd = passwordd;
+    }
+
+    /**
+     * @return the schedule
+     */
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = "userInfo")
+    public UserSchedule getSchedule() {
+        return schedule;
+    }
+
+    /**
+     * @param schedule the schedule to set
+     */
+    public void setSchedule(UserSchedule schedule) {
+        this.schedule = schedule;
     }
 }

@@ -20,6 +20,7 @@
         <mapping class="com.taylan.persistence.DAO.Personaltrainers"/>
         <mapping class="com.taylan.persistence.DAO.SchedulePool"/> 
         <mapping class="com.taylan.persistence.DAO.UserInfo"/> 
-        <mapping class="com.taylan.persistence.DAO.RecommendedExercises"/>         
+        <mapping class="com.taylan.persistence.DAO.RecommendedExercises"/>  
+        <mapping class="com.taylan.persistence.DAO.UserSchedule"/>        
     </session-factory>
 </hibernate-configuration>

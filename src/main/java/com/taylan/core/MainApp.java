@@ -1,6 +1,6 @@
 package com.taylan.core;
 
-import com.taylan.Model.User;
+import com.taylan.persistence.DAO.UserInfo;
 import com.taylan.security.Authenticator;
 import java.io.InputStream;
 import java.util.logging.Level;
@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     private Stage stage;
-    private User loggedUser;
+    private UserInfo loggedUser;
     private final double MINIMUM_WINDOW_WIDTH = 390.0;
     private final double MINIMUM_WINDOW_HEIGHT = 500.0;
 
@@ -65,8 +65,12 @@ public class MainApp extends Application {
         return (Initializable) loader.getController();
     }
 
-    public User getLoggedUser() {
+    public UserInfo getLoggedUser() {
         return loggedUser;
+    }
+    
+    public void setLoggedUser(UserInfo loggedUser) {
+        this.loggedUser = loggedUser;
     }
 
     public void userLogout() {
@@ -76,7 +80,7 @@ public class MainApp extends Application {
 
     public boolean userLogging(String userId, String password) {
         if (Authenticator.validate(userId, password)) {
-            loggedUser = User.of(userId);
+            setLoggedUser(Authenticator.getUserr());
             gotoMenu();
             return true;
         } else {

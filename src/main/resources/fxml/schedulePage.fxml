@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -10,17 +12,6 @@
    <children>
       <AnchorPane id="Schedule_top_line" prefHeight="484.0" prefWidth="684.0">
          <children>
-            <TableView id="Schedule_table_view" fx:id="scheduleTable" editable="true" layoutY="258.0" prefHeight="226.0" prefWidth="684.0">
-               <columns>
-                  <TableColumn fx:id="monday" prefWidth="98.0" text="Monday" />
-                  <TableColumn fx:id="tuesday" prefWidth="98.0" text="Tuesday" />
-                  <TableColumn fx:id="wednesday" prefWidth="97.0" text="Wednesday" />
-                  <TableColumn fx:id="thursday" prefWidth="97.0" text="Thursday" />
-                  <TableColumn fx:id="friday" prefWidth="97.0" text="Friday" />
-                  <TableColumn fx:id="saturday" prefWidth="98.0" text="Saturday" />
-                  <TableColumn fx:id="sunday" prefWidth="98.0" text="Sunday" />
-               </columns>
-            </TableView>
             
             <Label id="Schedule_label" layoutX="8.0" layoutY="167.0" text="Gender:" />
             <Label id="Schedule_label" layoutX="8.0" layoutY="194.0" text="Purpose:" />
@@ -28,8 +19,8 @@
             <TextField id="Schedule_textField" fx:id="gender_textField" editable="false" layoutX="56.0" layoutY="163.0" prefHeight="25.0" prefWidth="141.0" />
             <TextField id="Schedule_textField" fx:id="perpose_textField" editable="false" layoutX="56.0" layoutY="192.0" prefHeight="25.0" prefWidth="141.0" />
             <TextField id="Schedule_textField" fx:id="levell_textField" editable="false" layoutX="56.0" layoutY="221.0" prefHeight="25.0" prefWidth="141.0" />
-            <Button id="Schedule_button" fx:id="backtoMenu" layoutX="208.0" layoutY="78.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="25.0" prefWidth="141.0" text="Back to Menu" />
-            <Button id="Schedule_button" fx:id="cancel" layoutX="208.0" layoutY="141.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Cancel" />
+            <Button id="Schedule_button" fx:id="backtoMenu" layoutX="206.0" layoutY="59.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="25.0" prefWidth="148.0" text="Back to Menu" />
+            <Button id="Schedule_button" layoutX="206.0" layoutY="109.0" mnemonicParsing="false" onAction="#showOwnSchedule" prefHeight="25.0" prefWidth="148.0" text="Show Your Schedule" />
             <TabPane id="Schedule_search_accordion_titled_pane_tab_pane" prefHeight="143.0" prefWidth="203.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab text="Gender">
@@ -75,7 +66,7 @@
                   </Tab>
                </tabs>
             </TabPane>
-            <TabPane layoutX="357.0" prefHeight="226.0" prefWidth="328.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="357.0" prefHeight="230.0" prefWidth="328.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab text="Chest">
                      <content>
@@ -83,7 +74,7 @@
                            <children>
                               <ScrollPane prefHeight="200.0" prefWidth="327.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="206.0" prefWidth="312.0">
                                        <children>
                                           <TextField fx:id="chest_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
                                           <Label layoutX="93.0" layoutY="6.0" text="Recommended Exercise" />
@@ -108,7 +99,7 @@
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
                                           <TextField fx:id="back_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
+                                          <Label layoutX="93.0" layoutY="6.0" text="Recommended Exercise" />
                                           <TextField fx:id="back_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="back_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="back_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
@@ -130,11 +121,11 @@
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
                                           <TextField fx:id="shoulder_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
                                           <TextField fx:id="shoulder_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="shoulder_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="shoulder_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="shoulder_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="93.0" layoutY="6.0" text="Recommended Exercise" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -152,11 +143,11 @@
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
                                           <TextField fx:id="arms_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
                                           <TextField fx:id="arms_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="arms_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="arms_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="arms_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="93.0" layoutY="6.0" text="Recommended Exercise" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -174,11 +165,11 @@
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
                                           <TextField fx:id="abs_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
                                           <TextField fx:id="abs_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="abs_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="abs_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="abs_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="93.0" layoutY="6.0" text="Recommended Exercise" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -196,11 +187,11 @@
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
                                        <children>
                                           <TextField fx:id="legs_ex_1" editable="false" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="199.0" />
-                                          <Label layoutX="130.0" layoutY="6.0" text="Exercise" />
                                           <TextField fx:id="legs_ex_2" editable="false" layoutX="57.0" layoutY="62.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="legs_ex_3" editable="false" layoutX="57.0" layoutY="101.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="legs_ex_4" editable="false" layoutX="57.0" layoutY="140.0" prefHeight="25.0" prefWidth="199.0" />
                                           <TextField fx:id="legs_ex_5" editable="false" layoutX="57.0" layoutY="179.0" prefHeight="25.0" prefWidth="199.0" />
+                                          <Label layoutX="93.0" layoutY="6.0" text="Recommended Exercise" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -211,6 +202,75 @@
                   </Tab>
                </tabs>
             </TabPane>
+            <AnchorPane layoutY="246.0" prefHeight="237.0" prefWidth="684.0">
+               <children>
+                  <TitledPane alignment="CENTER" collapsible="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="97.0" text="Monday">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="104.0">
+                           <children>
+                              <TextArea fx:id="monday2" layoutX="-1.0" layoutY="-1.0" prefHeight="213.0" prefWidth="98.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane alignment="CENTER" collapsible="false" layoutX="97.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="98.0" text="Tuesday">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="104.0">
+                           <children>
+                              <TextArea fx:id="tuesday2" layoutX="-1.0" prefHeight="212.0" prefWidth="98.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane alignment="CENTER" collapsible="false" layoutX="195.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="97.0" text="Wednesday">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="98.0">
+                           <children>
+                              <TextArea fx:id="wednesday2" layoutX="-1.0" prefHeight="213.0" prefWidth="98.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane alignment="CENTER" collapsible="false" layoutX="292.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="97.0" text="Thursday">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="98.0">
+                           <children>
+                              <TextArea fx:id="thursday2" layoutX="-1.0" prefHeight="213.0" prefWidth="98.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane alignment="CENTER" collapsible="false" layoutX="389.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="98.0" text="Friday">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="98.0">
+                           <children>
+                              <TextArea fx:id="friday2" layoutX="-1.0" prefHeight="213.0" prefWidth="98.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane alignment="CENTER" collapsible="false" layoutX="487.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="98.0" text="Saturday">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="98.0">
+                           <children>
+                              <TextArea fx:id="saturday2" layoutX="-1.0" prefHeight="214.0" prefWidth="98.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane alignment="CENTER" collapsible="false" layoutX="585.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="98.0" text="Sunday">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="211.0" prefWidth="98.0">
+                           <children>
+                              <TextArea fx:id="sunday2" layoutX="-1.0" prefHeight="214.0" prefWidth="98.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+            <Button layoutX="206.0" layoutY="84.0" mnemonicParsing="false" onAction="#saveAsSchedule" prefHeight="25.0" prefWidth="148.0" text="Save as a Schedule" />
+            <Button layoutX="206.0" layoutY="134.0" mnemonicParsing="false" onAction="#deleteOwnSchedule" prefHeight="25.0" prefWidth="148.0" text="Delete Your Schedule" />
          </children>
       </AnchorPane>
    </children>

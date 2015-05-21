@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -53,8 +52,7 @@ public class SchedulePool implements java.io.Serializable {
 
     private String suSchedule;
     
-    /* To making MANY TO MANY RELATION WITH UserInfo table */
-    private Set<UserInfo> users = new HashSet<UserInfo>(0);
+    
     
     /* To making MANY TO MANY RELATION WITH RecommendedExercises table */
     
@@ -244,21 +242,6 @@ public class SchedulePool implements java.io.Serializable {
      */
     public void setSuSchedule(String suSchedule) {
         this.suSchedule = suSchedule;
-    }
-
-    /**
-     * @return the users
-     */
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "schedules")
-    public Set<UserInfo> getUsers() {
-        return users;
-    }
-
-    /**
-     * @param users the users to set
-     */
-    public void setUsers(Set<UserInfo> users) {
-        this.users = users;
     }
 
     /**

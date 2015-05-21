@@ -1,6 +1,8 @@
 package com.taylan.core;
 
-import com.taylan.Model.User;
+
+import com.taylan.persistence.DAO.UserInfo;
+import com.taylan.persistence.util.HibernateUtil;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
@@ -8,13 +10,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -26,43 +27,59 @@ import javafx.util.Duration;
 public class ProfileController extends AnchorPane implements Initializable {
     
     @FXML
-    private TextField user;
-    @FXML
-    private TextField phone;
-    @FXML
-    private TextField email;
-    @FXML
-    private TextArea address;
-    @FXML
-    private CheckBox subscribed;
-    @FXML
-    private Hyperlink logout;
+    private TextField username,password,name,surname,gender,age,address,
+                      contact,email;
     @FXML 
-    private Button save;
-    @FXML 
-    private Button menu;
-    
+    private Button save,logout,menu;
     @FXML 
     private Label success;
     
     private MainApp application;
     
+    private UserInfo loggedUser;
     
     public void initialize(URL url, ResourceBundle rb) {
        
     }    
     
     public void setApplication(MainApp application){
-        
         this.application = application;
-        User loggedUser = application.getLoggedUser();
-        user.setText(loggedUser.getId());
-        email.setText(loggedUser.getEmail());
-        phone.setText(loggedUser.getPhone());
-        if (loggedUser.getAddress() != null) {
-            address.setText(loggedUser.getAddress());
+        setLoggedUser(application.getLoggedUser());
+        
+        Session session = null;
+        Transaction tx = null ;
+       
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx=session.beginTransaction();
+            tx.setTimeout(5);
+            
+            /* SET PROFILE AREAS ACCORDING TO USERNAME */
+            
+            name.setText(getLoggedUser().getName());
+            surname.setText(getLoggedUser().getSurName());
+            gender.setText(getLoggedUser().getGender());
+            age.setText(getLoggedUser().getAge());
+            address.setText(getLoggedUser().getAddress());
+            contact.setText(getLoggedUser().getContact());
+            email.setText(getLoggedUser().getEmail());
+            username.setText(getLoggedUser().getUsernamee());
+            password.setText(getLoggedUser().getPasswordd());
+            
+            tx.commit();
+        } catch (RuntimeException e) {
+           try{
+    			tx.rollback();
+    		}catch(RuntimeException rbe){
+    			rbe.printStackTrace();
+    		}
+    		throw e;
+        } finally {
+           if(session!=null){
+    			session.close();
+    		}
         }
-        subscribed.setSelected(loggedUser.isSubscribed());
+       
         success.setOpacity(0);
     }
     
@@ -83,12 +100,43 @@ public class ProfileController extends AnchorPane implements Initializable {
             animateMessage();
             return;
         }
-        User loggedUser = application.getLoggedUser();
-        loggedUser.setEmail(email.getText());
-        loggedUser.setPhone(phone.getText());
-        loggedUser.setSubscribed(subscribed.isSelected());
-        loggedUser.setAddress(address.getText());
-        animateMessage();
+        Session session = null;
+        Transaction tx = null ;
+       
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx=session.beginTransaction();
+            tx.setTimeout(5);
+            
+            /* GET INFORMATION FROM AREAS AND SET TO DATABASE */
+            getLoggedUser().setName(name.getText());
+            getLoggedUser().setSurName(surname.getText());
+            getLoggedUser().setAge(age.getText());
+            getLoggedUser().setAddress(address.getText());
+            getLoggedUser().setEmail(email.getText());
+            getLoggedUser().setContact(contact.getText());
+            getLoggedUser().setAddress(address.getText());
+            getLoggedUser().setGender(gender.getText());
+            getLoggedUser().setUsernamee(username.getText());
+            getLoggedUser().setPasswordd(password.getText());
+            
+            session.update(getLoggedUser());
+            
+            tx.commit();
+        } catch (RuntimeException e) {
+           try{
+    			tx.rollback();
+    		}catch(RuntimeException rbe){
+    			rbe.printStackTrace();
+    		}
+    		throw e;
+        } finally {
+           if(session!=null){
+    			session.close();
+    		}
+           animateMessage();
+        }
+        
     }
     
     public void menuProfile(ActionEvent event){
@@ -107,6 +155,20 @@ public class ProfileController extends AnchorPane implements Initializable {
         ft.setFromValue(0.0);
         ft.setToValue(1);
         ft.play();
+    }
+
+    /**
+     * @return the loggedUser
+     */
+    public UserInfo getLoggedUser() {
+        return loggedUser;
+    }
+
+    /**
+     * @param loggedUser the loggedUser to set
+     */
+    public void setLoggedUser(UserInfo loggedUser) {
+        this.loggedUser = loggedUser;
     }
     
 }
