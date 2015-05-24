@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.taylan.core;
 
 import com.taylan.persistence.DAO.Personaltrainers;
@@ -21,7 +16,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import org.hibernate.Session;
-import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 
 /**
@@ -73,24 +67,21 @@ public class PersonalTrainersController extends AnchorPane implements Initializa
 
     public void initialize(URL location, ResourceBundle resources) {
 
-       // System.out.println("Data transfer Prepare!");
-
+        // System.out.println("Data transfer Prepare!");
         id.setCellValueFactory(new PropertyValueFactory<Personaltrainers, Integer>("idpersonalTrainers"));
         name.setCellValueFactory(new PropertyValueFactory<Personaltrainers, String>("name"));
         experience.setCellValueFactory(new PropertyValueFactory<Personaltrainers, Integer>("experience"));
         email.setCellValueFactory(new PropertyValueFactory<Personaltrainers, String>("email"));
         contact.setCellValueFactory(new PropertyValueFactory<Personaltrainers, String>("contact"));
 
-       // System.out.println("Data transfer Ready!");
+        // System.out.println("Data transfer Ready!");
         displayRow();
 
-       // System.out.println("Data is Ready to SHOW !!");
-
+        // System.out.println("Data is Ready to SHOW !!");
         // Add observable list data to the table
         personalTrainers.setItems(personData);
 
-       // System.out.println("Data SHOWED succeed!");
-
+        // System.out.println("Data SHOWED succeed!");
     }
 
     @FXML
@@ -104,33 +95,33 @@ public class PersonalTrainersController extends AnchorPane implements Initializa
         application.gotoMenu();
     }
 
-     /* Method to DISPLAY personal Trainers on the DATABASE  */
+    /* Method to DISPLAY personal Trainers on the DATABASE  */
     public void displayRow() {
         Session session = null;
-        Transaction tx = null ;
+        Transaction tx = null;
         personData = FXCollections.observableArrayList();
-        
+
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            tx=session.beginTransaction();
+            tx = session.beginTransaction();
             tx.setTimeout(5);
-            
+
             List<Personaltrainers> ls = session.getNamedQuery("loadPersonalTrainers").list();
             for (Personaltrainers trainer : ls) {
                 personData.add(trainer);
             }
             tx.commit();
         } catch (RuntimeException e) {
-           try{
-    			tx.rollback();
-    		}catch(RuntimeException rbe){
-    			rbe.printStackTrace();
-    		}
-    		throw e;
+            try {
+                tx.rollback();
+            } catch (RuntimeException rbe) {
+                rbe.printStackTrace();
+            }
+            throw e;
         } finally {
-           if(session!=null){
-    			session.close();
-    		}
+            if (session != null) {
+                session.close();
+            }
         }
 
     }
