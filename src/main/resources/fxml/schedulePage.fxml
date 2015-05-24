@@ -19,7 +19,7 @@
             <TextField id="Schedule_textField" fx:id="gender_textField" editable="false" layoutX="56.0" layoutY="163.0" prefHeight="25.0" prefWidth="141.0" />
             <TextField id="Schedule_textField" fx:id="perpose_textField" editable="false" layoutX="56.0" layoutY="192.0" prefHeight="25.0" prefWidth="141.0" />
             <TextField id="Schedule_textField" fx:id="levell_textField" editable="false" layoutX="56.0" layoutY="221.0" prefHeight="25.0" prefWidth="141.0" />
-            <Button id="Schedule_button" fx:id="backtoMenu" layoutX="206.0" layoutY="59.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="25.0" prefWidth="148.0" text="Back to Menu" />
+            <Button id="Schedule_button" fx:id="backtoMenu" layoutX="206.0" layoutY="34.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="25.0" prefWidth="148.0" text="Back to Menu" />
             <Button id="Schedule_button" layoutX="206.0" layoutY="109.0" mnemonicParsing="false" onAction="#showOwnSchedule" prefHeight="25.0" prefWidth="148.0" text="Show Your Schedule" />
             <TabPane id="Schedule_search_accordion_titled_pane_tab_pane" prefHeight="143.0" prefWidth="203.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
@@ -269,7 +269,7 @@
                   </TitledPane>
                </children>
             </AnchorPane>
-            <Button layoutX="206.0" layoutY="84.0" mnemonicParsing="false" onAction="#saveAsSchedule" prefHeight="25.0" prefWidth="148.0" text="Save as a Schedule" />
+            <Button layoutX="206.0" layoutY="59.0" mnemonicParsing="false" onAction="#saveAsSchedule" prefHeight="25.0" prefWidth="148.0" text="Save/Update Schedule" />
             <Button layoutX="206.0" layoutY="134.0" mnemonicParsing="false" onAction="#deleteOwnSchedule" prefHeight="25.0" prefWidth="148.0" text="Delete Your Schedule" />
          </children>
       </AnchorPane>

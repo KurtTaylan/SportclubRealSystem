@@ -1,10 +1,11 @@
 package com.taylan.persistence.Interface;
 
 /**
- *@author Taylan Kurt   <taylankurt34@gmail.com>
+ * @author Taylan Kurt   <taylankurt34@gmail.com>
  *
  */
 public interface Person {
-   public abstract String takeRecord();
-    
+
+    public abstract String takeRecord();
+
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.taylan.core;
 
 import com.taylan.persistence.DAO.UserInfo;
@@ -20,8 +15,8 @@ import org.hibernate.Transaction;
 /**
  *
  * @author Taylan Kurt   <taylankurt34@gmail.com>
- * 
- *          Menu Controller
+ *
+ * Menu Controller
  */
 public class MenuController extends AnchorPane implements Initializable {
 
@@ -35,96 +30,91 @@ public class MenuController extends AnchorPane implements Initializable {
     Button trainers;
     @FXML
     Button logOut;
-    
+
     private MainApp application;
-    
+
     /**
      * @return the application
      */
     public MainApp getApplication() {
         return application;
     }
-    
+
     public void setApplication(MainApp application) {
         this.application = application;
     }
-    
-    
+
     public void initialize(URL location, ResourceBundle resources) {
-        
+
     }
-    
+
     public void processDeleteAccount(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
         }
-        Session session=null;
+        Session session = null;
         Transaction tx = null;
         UserInfo userInfo = application.getLoggedUser();
-        
-         try {
+
+        try {
             session = HibernateUtil.getSessionFactory().openSession();
-            tx=session.beginTransaction();
+            tx = session.beginTransaction();
             tx.setTimeout(5);
-            
+
             session.delete(userInfo);
-            
-            
+
             tx.commit();
         } catch (RuntimeException e) {
-           try{
-    			tx.rollback();
-    		}catch(RuntimeException rbe){
-    			rbe.printStackTrace();
-    		}
-    		throw e;
+            try {
+                tx.rollback();
+            } catch (RuntimeException rbe) {
+                rbe.printStackTrace();
+            }
+            throw e;
         } finally {
-           if(session!=null){
-    			session.close();
-    		}
-           application.userLogout();
+            if (session != null) {
+                session.close();
+            }
+            application.userLogout();
         }
-        
+
     }
-    
+
     public void processSchdule(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             return;
-        } 
+        }
         application.gotoSchedule();
     }
-    
+
     public void processProfile(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             return;
         }
         application.gotoProfile();
     }
-    
+
     public void processTrainers(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             return;
-        } 
+        }
         application.openTrainerPage();
-    }   
-    
-    
+    }
+
     public void processLogout(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             return;
         }
         application.userLogout();
     }
-    
-    
-    
+
 }

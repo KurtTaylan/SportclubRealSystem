@@ -14,20 +14,20 @@ import javax.persistence.Table;
 
 /**
  * @author Taylan Kurt   <taylankurt34@gmail.com>
- *          Recommended Exercises Data Annotation  - POJO class
+ * Recommended Exercises Data Annotation - POJO class
  */
-
 @NamedQueries({
-        @NamedQuery(
-                name = "getRecommenderExercises",
-                query = "from RecommendedExercises rec where rec.id = :id"
-        )
+    @NamedQuery(
+            name = "getRecommenderExercises",
+            query = "from RecommendedExercises rec where rec.id = :id"
+    )
 })
 @Entity
-@Table(name="recommended_exercises",catalog="sportclubsystem")
+@Table(name = "recommended_exercises", catalog = "sportclubsystem")
 public class RecommendedExercises implements java.io.Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     private Integer id;
     private String chest;
     private String back;
@@ -35,28 +35,22 @@ public class RecommendedExercises implements java.io.Serializable {
     private String arms;
     private String abs;
     private String leg;
-    
-    
-    
-    private SchedulePool schedule;
-    
-    
 
-    public RecommendedExercises(){}
-    
-    public RecommendedExercises(String chest,String back
-            ,String shoulder
-            ,String arms,String abs,String leg){ 
-        this.chest      = chest;
-        this.back       = back;
-        this.shoulder   = shoulder;
-        this.arms       = arms;
-        this.abs        = abs;
-        this.leg        = leg;
-        
+    private SchedulePool schedule;
+
+    public RecommendedExercises() {
     }
-    
-    
+
+    public RecommendedExercises(String chest, String back, String shoulder, String arms, String abs, String leg) {
+        this.chest = chest;
+        this.back = back;
+        this.shoulder = shoulder;
+        this.arms = arms;
+        this.abs = abs;
+        this.leg = leg;
+
+    }
+
     /**
      * @return the id
      */
@@ -77,7 +71,7 @@ public class RecommendedExercises implements java.io.Serializable {
     /**
      * @return the chest
      */
-    @Column(name="chest", nullable=true, length=45)
+    @Column(name = "chest", nullable = true, length = 45)
     public String getChest() {
         return chest;
     }
@@ -92,7 +86,7 @@ public class RecommendedExercises implements java.io.Serializable {
     /**
      * @return the back
      */
-    @Column(name="back", nullable=true, length=45)
+    @Column(name = "back", nullable = true, length = 45)
     public String getBack() {
         return back;
     }
@@ -107,7 +101,7 @@ public class RecommendedExercises implements java.io.Serializable {
     /**
      * @return the shoulder
      */
-    @Column(name="shoulder", nullable=true, length=45)
+    @Column(name = "shoulder", nullable = true, length = 45)
     public String getShoulder() {
         return shoulder;
     }
@@ -122,7 +116,7 @@ public class RecommendedExercises implements java.io.Serializable {
     /**
      * @return the arms
      */
-    @Column(name="arms", nullable=true, length=45)
+    @Column(name = "arms", nullable = true, length = 45)
     public String getArms() {
         return arms;
     }
@@ -137,7 +131,7 @@ public class RecommendedExercises implements java.io.Serializable {
     /**
      * @return the abs
      */
-    @Column(name="abs",nullable=true,length=45)
+    @Column(name = "abs", nullable = true, length = 45)
     public String getAbs() {
         return abs;
     }
@@ -152,7 +146,7 @@ public class RecommendedExercises implements java.io.Serializable {
     /**
      * @return the leg
      */
-    @Column(name="leg", nullable=true, length=45)
+    @Column(name = "leg", nullable = true, length = 45)
     public String getLeg() {
         return leg;
     }
@@ -163,7 +157,7 @@ public class RecommendedExercises implements java.io.Serializable {
     public void setLeg(String leg) {
         this.leg = leg;
     }
-    
+
     /**
      * @return the schedule
      */
@@ -172,8 +166,6 @@ public class RecommendedExercises implements java.io.Serializable {
     public SchedulePool getSchedule() {
         return schedule;
     }
-    
-    
 
     /**
      * @param schedule the schedule to set
@@ -181,12 +173,8 @@ public class RecommendedExercises implements java.io.Serializable {
     public void setSchedule(SchedulePool schedule) {
         this.schedule = schedule;
     }
-    
-                
-    
+
     /**
      * @return the schedulesRecommend
      */
-    
-    
 }

@@ -68,7 +68,7 @@ public class MainApp extends Application {
     public UserInfo getLoggedUser() {
         return loggedUser;
     }
-    
+
     public void setLoggedUser(UserInfo loggedUser) {
         this.loggedUser = loggedUser;
     }
@@ -114,6 +114,7 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void gotoSchedule() {
         try {
             SchedulePageController schedule = (SchedulePageController) replaceSceneContent("/fxml/schedulePage.fxml");
@@ -131,6 +132,7 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void gotoSignUpPage() {
         try {
             SignupController su = (SignupController) replaceSceneContent("/fxml/signup.fxml");

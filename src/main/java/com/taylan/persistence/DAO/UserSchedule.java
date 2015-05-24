@@ -9,15 +9,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
-
 /**
  *
  * @author Taylan Kurt <taylankurt34@gmail.com>
  */
 @Entity
 @Table(name = "user_schedule", catalog = "sportclubsystem")
-public class UserSchedule implements java.io.Serializable{
+public class UserSchedule implements java.io.Serializable {
+
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String mo_schedule;
@@ -29,11 +28,12 @@ public class UserSchedule implements java.io.Serializable{
     private String su_schedule;
     private UserInfo userInfo;
 
-    public UserSchedule(){}
-    
-    public UserSchedule(String mo_schedule,String tu_schedule,String we_schedule,String th_schedule,
-                        String fr_schedule,String sa_schedule,String su_schedule){
-    
+    public UserSchedule() {
+    }
+
+    public UserSchedule(String mo_schedule, String tu_schedule, String we_schedule, String th_schedule,
+            String fr_schedule, String sa_schedule, String su_schedule) {
+
         this.mo_schedule = mo_schedule;
         this.tu_schedule = tu_schedule;
         this.we_schedule = we_schedule;
@@ -41,10 +41,9 @@ public class UserSchedule implements java.io.Serializable{
         this.fr_schedule = fr_schedule;
         this.sa_schedule = sa_schedule;
         this.su_schedule = su_schedule;
-        
+
     }
-    
-    
+
     /**
      * @return the id
      */
@@ -182,5 +181,5 @@ public class UserSchedule implements java.io.Serializable{
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
     }
-    
+
 }

@@ -1,6 +1,5 @@
 package com.taylan.core;
 
-
 import com.taylan.persistence.DAO.UserInfo;
 import com.taylan.persistence.util.HibernateUtil;
 import java.net.URL;
@@ -20,42 +19,40 @@ import org.hibernate.Transaction;
 /**
  *
  * @author Taylan Kurt  <taylankurt34@gmail.com>
- * 
- *   Profile Controller
+ *
+ * Profile Controller
  */
-
 public class ProfileController extends AnchorPane implements Initializable {
-    
+
     @FXML
-    private TextField username,password,name,surname,gender,age,address,
-                      contact,email;
-    @FXML 
-    private Button save,logout,menu;
-    @FXML 
+    private TextField username, password, name, surname, gender, age, address,
+            contact, email;
+    @FXML
+    private Button save, logout, menu;
+    @FXML
     private Label success;
-    
+
     private MainApp application;
-    
+
     private UserInfo loggedUser;
-    
+
     public void initialize(URL url, ResourceBundle rb) {
-       
-    }    
-    
-    public void setApplication(MainApp application){
+
+    }
+
+    public void setApplication(MainApp application) {
         this.application = application;
         setLoggedUser(application.getLoggedUser());
-        
+
         Session session = null;
-        Transaction tx = null ;
-       
+        Transaction tx = null;
+
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            tx=session.beginTransaction();
+            tx = session.beginTransaction();
             tx.setTimeout(5);
-            
+
             /* SET PROFILE AREAS ACCORDING TO USERNAME */
-            
             name.setText(getLoggedUser().getName());
             surname.setText(getLoggedUser().getSurName());
             gender.setText(getLoggedUser().getGender());
@@ -65,49 +62,49 @@ public class ProfileController extends AnchorPane implements Initializable {
             email.setText(getLoggedUser().getEmail());
             username.setText(getLoggedUser().getUsernamee());
             password.setText(getLoggedUser().getPasswordd());
-            
+
             tx.commit();
         } catch (RuntimeException e) {
-           try{
-    			tx.rollback();
-    		}catch(RuntimeException rbe){
-    			rbe.printStackTrace();
-    		}
-    		throw e;
+            try {
+                tx.rollback();
+            } catch (RuntimeException rbe) {
+                rbe.printStackTrace();
+            }
+            throw e;
         } finally {
-           if(session!=null){
-    			session.close();
-    		}
+            if (session != null) {
+                session.close();
+            }
         }
-       
+
         success.setOpacity(0);
     }
-    
+
     public void processLogout(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             return;
         }
-        
+
         application.userLogout();
     }
-    
+
     public void saveProfile(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             animateMessage();
             return;
         }
         Session session = null;
-        Transaction tx = null ;
-       
+        Transaction tx = null;
+
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            tx=session.beginTransaction();
+            tx = session.beginTransaction();
             tx.setTimeout(5);
-            
+
             /* GET INFORMATION FROM AREAS AND SET TO DATABASE */
             getLoggedUser().setName(name.getText());
             getLoggedUser().setSurName(surname.getText());
@@ -119,37 +116,37 @@ public class ProfileController extends AnchorPane implements Initializable {
             getLoggedUser().setGender(gender.getText());
             getLoggedUser().setUsernamee(username.getText());
             getLoggedUser().setPasswordd(password.getText());
-            
+
             session.update(getLoggedUser());
-            
+
             tx.commit();
         } catch (RuntimeException e) {
-           try{
-    			tx.rollback();
-    		}catch(RuntimeException rbe){
-    			rbe.printStackTrace();
-    		}
-    		throw e;
+            try {
+                tx.rollback();
+            } catch (RuntimeException rbe) {
+                rbe.printStackTrace();
+            }
+            throw e;
         } finally {
-           if(session!=null){
-    			session.close();
-    		}
-           animateMessage();
+            if (session != null) {
+                session.close();
+            }
+            animateMessage();
         }
-        
+
     }
-    
-    public void menuProfile(ActionEvent event){
-       if (application == null){
+
+    public void menuProfile(ActionEvent event) {
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             return;
         }
-        
+
         application.gotoMenu();
-        
+
     }
-    
+
     private void animateMessage() {
         FadeTransition ft = new FadeTransition(Duration.millis(1000), success);
         ft.setFromValue(0.0);
@@ -170,5 +167,5 @@ public class ProfileController extends AnchorPane implements Initializable {
     public void setLoggedUser(UserInfo loggedUser) {
         this.loggedUser = loggedUser;
     }
-    
+
 }

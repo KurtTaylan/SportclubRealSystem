@@ -1,7 +1,6 @@
 package com.taylan.persistence.DAO;
 
 import com.taylan.persistence.absract.PersonAbstract;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,27 +12,26 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 /**
  * @author Taylan Kurt   <taylankurt34@gmail.com>
- *          User Info Data Annotation  - POJO class
+ * User Info Data Annotation - POJO class
  */
 @NamedQueries({
-	@NamedQuery(
-	name = "getUserInformation",
-	query = "from UserInfo u where u.id =" + " :id"
-        ),
     @NamedQuery(
-	name = "securityCheck",
-	query = "select usernamee,passwordd from UserInfo u where u.id = :id"
-        )
+            name = "getUserInformation",
+            query = "from UserInfo u where u.id =" + " :id"
+    ),
+    @NamedQuery(
+            name = "securityCheck",
+            query = "select usernamee,passwordd from UserInfo u where u.id = :id"
+    )
 })
 @Entity
 @Table(name = "user_info", catalog = "sportclubsystem")
-public class UserInfo extends PersonAbstract implements java.io.Serializable{
-    
+public class UserInfo extends PersonAbstract implements java.io.Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     private Integer id;
     private String name;
     private String surName;
@@ -45,23 +43,23 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     private String usernamee;
     private String passwordd;
     private UserSchedule schedule;
-    
+
     public UserInfo(String name, String surName, String address, String email,
-                    String age,String gender,String contact){
-        this.name           = name;
-        this.surName        = surName;
-        this.address        = address;
-        this.age            = age;
-        this.gender         = gender;
-        this.contact        = contact;
+            String age, String gender, String contact) {
+        this.name = name;
+        this.surName = surName;
+        this.address = address;
+        this.age = age;
+        this.gender = gender;
+        this.contact = contact;
     }
-    
-    public UserInfo(){ }
-    
+
+    public UserInfo() {
+    }
 
     /**
      * @return the name
-     */ 
+     */
     @Column(name = "name", nullable = false, length = 45)
     public String getName() {
         return name;
@@ -148,13 +146,12 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     public void setGender(String gender) {
         this.gender = gender;
     }
-    
+
     @Override                   // Overriding from PersonAbstract class ...
-    public String takeRecord(){
-    
-    
-    return "Name:"+getName()+" Surname:"+getSurName()+" Age:"+getAge()+
-            " Gender:"+getGender()+" Email:"+getEmail()+" Contact:"+getContact();
+    public String takeRecord() {
+
+        return "Name:" + getName() + " Surname:" + getSurName() + " Age:" + getAge()
+                + " Gender:" + getGender() + " Email:" + getEmail() + " Contact:" + getContact();
     }
 
     /**
@@ -222,7 +219,7 @@ public class UserInfo extends PersonAbstract implements java.io.Serializable{
     /**
      * @return the schedule
      */
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = "userInfo")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "userInfo")
     public UserSchedule getSchedule() {
         return schedule;
     }

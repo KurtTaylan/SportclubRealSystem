@@ -4,12 +4,10 @@ import com.taylan.persistence.Interface.Person;
 
 /**
  * @author Taylan Kurt   <taylankurt34@gmail.com>
- *          Person Abstract
+ * Person Abstract
  */
-public abstract class PersonAbstract implements Person{
-    
-    public String takeRecord(){
-    
-        return "";
-    }
+public abstract class PersonAbstract implements Person {
+
+    public abstract String takeRecord();
+
 }
