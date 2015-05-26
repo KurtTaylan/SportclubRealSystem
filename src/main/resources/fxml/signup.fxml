@@ -44,6 +44,11 @@
             <Label fx:id="error" layoutX="263.0" layoutY="308.0" prefHeight="17.0" prefWidth="160.0" textAlignment="CENTER" underline="true" />
             <RadioButton fx:id="male" layoutX="408.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#radioCheck" text="Male" />
             <RadioButton fx:id="female" layoutX="488.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#radioCheck" text="Female" />
+            <ImageView fitHeight="220.0" fitWidth="250.0" layoutX="373.0" layoutY="294.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../styles/GymLogo.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </children>
 </AnchorPane>

@@ -20,9 +20,9 @@
                 <TextField id="textField1" fx:id="userId" layoutY="86.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
                 <Label id="label1" layoutX="14.0" layoutY="139.0" text="Password" />
                 <PasswordField id="passwordField1" fx:id="password" layoutY="157.0" prefWidth="415.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" />
-                <ImageView id="app-login-logo" layoutY="-12.0">
+                <ImageView id="app-login-logo" fitHeight="256.0" fitWidth="315.0" layoutX="-12.0" layoutY="-88.0">
                   <image>
-                    <Image url="@../styles/LoginLogo.png" />
+                    <Image url="@../styles/GymLogo.png" />
                   </image>
                 </ImageView>
                         <Button layoutX="512.0" mnemonicParsing="false" onAction="#processSignup" prefHeight="51.0" prefWidth="137.0" text="Sign up!" />
@@ -39,7 +39,4 @@
       </children>
     </HBox>
   </children>
-  <stylesheets>
-      <URL value="@../styles/Login.css" />
-  </stylesheets>
 </AnchorPane>

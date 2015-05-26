@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
@@ -7,46 +9,32 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taylan.core.MenuController">
-    <stylesheets>
-        <URL value="@../styles/Login.css" />
-    </stylesheets>
+    
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Login.css">
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
-            <HBox layoutY="76.0" prefHeight="80.0" prefWidth="600.0">
-               <children>
-                  <Button fx:id="schdule" mnemonicParsing="false" onAction="#processSchdule" prefHeight="80.0" prefWidth="219.0" text="SCHDULE" translateX="3.0" />
-                  <ImageView fitHeight="88.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true" translateX="175.0" translateY="90.0">
-                     <image>
-                        <Image url="@../styles/LoginLogo.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-            <HBox layoutY="168.0" prefHeight="80.0" prefWidth="600.0">
-               <children>
-                  <Button fx:id="profile" mnemonicParsing="false" onAction="#processProfile" prefHeight="80.0" prefWidth="220.0" text="PROFILE" translateX="3.0" />
-               </children>
-            </HBox>
-            <HBox layoutY="261.0" prefHeight="80.0" prefWidth="600.0">
-               <children>
-                  <Button fx:id="trainers" mnemonicParsing="false" onAction="#processTrainers" prefHeight="78.0" prefWidth="220.0" text="TRAINERS" translateX="3.0" />
-               </children>
-            </HBox>
-            <HBox layoutX="14.0" layoutY="341.0" prefHeight="51.0" prefWidth="586.0">
-               <children>
-                  <Button fx:id="logOut" alignment="CENTER_RIGHT" layoutX="452.0" layoutY="4565.0" mnemonicParsing="false" onAction="#processLogout" prefHeight="51.0" prefWidth="151.0" text="LOGOUT" translateX="432.0" translateY="4.0" />
-               </children>
-            </HBox>
-            <HBox prefHeight="49.0" prefWidth="600.0">
-               <children>
-                  <Button fx:id="deleteAccount" mnemonicParsing="false" onAction="#processDeleteAccount" prefHeight="17.0" prefWidth="281.0" text="DELETE ACCOUNT" translateX="314.0" translateY="4.0" />
-               </children>
-            </HBox>
+            <Button fx:id="profile" layoutY="237.0" mnemonicParsing="false" onAction="#processProfile" prefHeight="80.0" prefWidth="220.0" text="PROFILE" />
+            <Button fx:id="schdule" layoutY="77.0" mnemonicParsing="false" onAction="#processSchdule" prefHeight="80.0" prefWidth="220.0" text="SCHDULE" />
+            <Button fx:id="trainers" alignment="CENTER" contentDisplay="CENTER" layoutY="157.0" mnemonicParsing="false" onAction="#processTrainers" prefHeight="80.0" prefWidth="220.0" text="TRAINERS" />
+            <Button fx:id="deleteAccount" layoutX="449.0" mnemonicParsing="false" onAction="#processDeleteAccount" prefHeight="51.0" prefWidth="151.0" text="DELETE ACCOUNT" />
+            <Button fx:id="logOut" alignment="CENTER" layoutX="449.0" layoutY="349.0" mnemonicParsing="false" onAction="#processLogout" prefHeight="51.0" prefWidth="151.0" text="LOGOUT" />
+            <ImageView fitHeight="242.0" fitWidth="287.0" focusTraversable="true" layoutX="300.0" layoutY="90.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../styles/GymLogo.png" />
+               </image>
+               <effect>
+                  <DisplacementMap>
+                     <mapData>
+                        <FloatMap />
+                     </mapData>
+                  </DisplacementMap>
+               </effect>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
-   <styleClass>
-      <String fx:value="background" />
-   </styleClass>
+   
 </AnchorPane>

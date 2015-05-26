@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taylan.core.PersonalTrainersController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taylan.core.PersonalTrainersController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -22,6 +23,11 @@
               </columns>
             </TableView>
             <Button fx:id="menu" layoutX="236.0" layoutY="320.0" mnemonicParsing="false" onAction="#processMenu" prefHeight="73.0" prefWidth="128.0" text="MENU" translateY="3.0" />
+            <ImageView fitHeight="138.0" fitWidth="198.0" layoutX="6.0" layoutY="289.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../styles/GymLogo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
