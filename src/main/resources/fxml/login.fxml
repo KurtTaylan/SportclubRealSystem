@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taylan.core.LoginController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="735.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taylan.core.LoginController">
   <children>
-    <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="500.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <AnchorPane id="anchorPane2" prefHeight="300.0" prefWidth="500.0" styleClass="top-segment" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
         <VBox id="VBox" alignment="CENTER" prefHeight="300.0" prefWidth="421.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
           <children>
@@ -39,4 +39,7 @@
       </children>
     </HBox>
   </children>
+  <stylesheets>
+      <URL value="@../styles/Login.css" />
+  </stylesheets>
 </AnchorPane>
